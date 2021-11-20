@@ -1,6 +1,8 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof( Player))]
 public class PlayerControl : MonoBehaviour
@@ -8,6 +10,17 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Camera _camera;
     private Coroutine _moveRoutine;
+
+    private void OnEnable()
+    {
+        _player.Head.OnCollisionWithBorder += CollisionWithBorder;
+    }
+
+    private void OnDisable()
+    {
+        _player.Head.OnCollisionWithBorder -= CollisionWithBorder;
+
+    }
 
     private void Update()
     {
@@ -37,7 +50,8 @@ public class PlayerControl : MonoBehaviour
     {
         var currentPosition = _player.transform.position;
         var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
-        
+        _player.Direction = GetDirrection(targetPosition, currentPosition);
+      
         while (_player.transform.position != targetPosition)
         {
             _player.transform.position =
@@ -48,5 +62,24 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-    
+
+    private Vector3 GetDirrection(Vector3 targetPosition, Vector3 currentPosition)
+    {
+        var heading = targetPosition - currentPosition;
+        var distance = heading.magnitude;
+        var direction = heading / distance;
+        return direction;
+    }
+
+    private void CollisionWithBorder(Collider other)
+    {
+        var playerPosition = _player.transform.position;
+        
+        playerPosition.x = other.transform.position.x - (_player.Head.Bounds.size.x * _player.Direction.x);
+        _player.transform.position = playerPosition;
+        
+        if (_moveRoutine != null)
+            StopCoroutine(_moveRoutine);
+    }
+
 }

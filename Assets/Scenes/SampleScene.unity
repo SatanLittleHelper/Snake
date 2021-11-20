@@ -232,10 +232,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 6356321498295166737, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
-      propertyPath: _speed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -465,6 +461,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293884220026010119, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220026010138, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220026010138, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220026010138, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3293884220026010139, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
