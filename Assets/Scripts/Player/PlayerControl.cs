@@ -2,24 +2,28 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof( Player))]
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Head _player;
     [SerializeField] private Camera _camera;
     private Coroutine _moveRoutine;
     private Vector3 _lastvalidDirection = Vector3.one;
+    
+    public event UnityAction OnPlayerMove;
+
 
 
     private void OnEnable()
     {
-        _player.Head.OnCollisionWithBorder += CollisionWithBorder;
+        _player.OnCollisionWithBorder += CollisionWithBorder;
     }
 
     private void OnDisable()
     {
-        _player.Head.OnCollisionWithBorder -= CollisionWithBorder;
+        _player.OnCollisionWithBorder -= CollisionWithBorder;
 
     }
 
@@ -57,9 +61,9 @@ public class PlayerControl : MonoBehaviour
         {
             _player.transform.position =
                 Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Speed * Time.deltaTime);
+            OnPlayerMove?.Invoke();
+
             yield return null;
-           
-            
         }
 
     }
@@ -83,7 +87,7 @@ public class PlayerControl : MonoBehaviour
     {
         var playerPosition = _player.transform.position;
         
-        playerPosition.x = other.transform.position.x - (_player.Head.Bounds.size.x * _player.Direction.x);
+        playerPosition.x = other.transform.position.x - (_player.Bounds.size.x * _player.Direction.x);
         _player.transform.position = playerPosition;
         
         if (_moveRoutine != null)

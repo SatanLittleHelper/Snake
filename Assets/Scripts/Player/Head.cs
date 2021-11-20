@@ -1,12 +1,23 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-    public class SnakeHead : MonoBehaviour
+    public class Head : MonoBehaviour
     {
+        [SerializeField] private float _speed;
         private MeshRenderer _renderer;
         private Bounds _bounds;
+        private Vector3 _direction;
+
 
         public Bounds Bounds => _bounds;
+        public Vector3 Direction
+        {
+            get => _direction;
+            set => _direction = value;
+        }
+
+
+        public float Speed => _speed;
         public event UnityAction<Collider> OnCollisionWithBorder;
 
         private void Awake()

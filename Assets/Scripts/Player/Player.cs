@@ -1,11 +1,14 @@
 
 using UnityEngine;
+using UnityEngine.Events;
+
 [RequireComponent(typeof(PlayerControl))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private SnakeHead _head;
+    [SerializeField] private Head _head;
     private Vector3 _direction;
+
 
     public Vector3 Direction
     {
@@ -15,6 +18,6 @@ public class Player : MonoBehaviour
 
 
     public float Speed => _speed;
-    public SnakeHead Head => _head;
+    public Head Head => _head;
 
 }
