@@ -1,38 +1,37 @@
 
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof( Player))]
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    private Coroutine _moveRoutine = null;
+    [SerializeField] private Camera _camera;
+    private Coroutine _moveRoutine;
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            // var ray = Camera.main.ScreenPointToRay(Input.mousePosition).origin;
-           // Debug.Log(ray);
-
-            Move(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            // Move(Camera.main.ViewportToWorldPoint(Input.mousePosition));
-            // Move(ray);
-            // Debug.Log(Input.mousePosition.normalized);
+            Move(Input.mousePosition);
         }
+        
     }
 
     private void Move(Vector3 position)
     {
-        Debug.Log(position);
+        if (Camera.main is null) return;
+        var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
+
+        if (ray.Length <= 0) return;
+       
         if (_moveRoutine != null)
         {
             StopCoroutine(_moveRoutine);
         }
             
-        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(position));
+        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(ray[0].point));
+
     }
     private IEnumerator ChangePlayerPositionRoutine(Vector3 target)
     {

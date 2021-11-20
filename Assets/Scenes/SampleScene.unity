@@ -128,6 +128,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3293884220026010119, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
   m_PrefabInstance: {fileID: 3293884220147824757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &542936976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3293884220026010139, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+  m_PrefabInstance: {fileID: 3293884220147824757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &542936981
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542936976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,9 +246,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2176164054732050817, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 6356321498295166737, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: _speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
@@ -321,7 +343,7 @@ Camera:
   m_BackGroundColor: {r: 0.28835887, g: 0.6633492, b: 0.754717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 1
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
@@ -333,7 +355,7 @@ Camera:
     height: 1
   near clip plane: 1
   far clip plane: 30
-  field of view: 94.11567
+  field of view: 57
   orthographic: 0
   orthographic size: 8.21
   m_Depth: -1
@@ -359,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 11.36, z: 2.34}
+  m_LocalPosition: {x: 0, y: 17.8, z: -5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 705507995}
@@ -467,6 +489,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3293884220026010138, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3293884220026010139, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
       propertyPath: m_Name
       value: Road
@@ -478,7 +504,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 234797926595910979, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
   m_PrefabInstance: {fileID: 3293884220147824757}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 542936976}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccb9f175f1b8543d0967a14c79aeb541, type: 3}
