@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Camera _camera;
     private Coroutine _moveRoutine;
+    private Vector3 _lastvalidDirection = Vector3.one;
+
 
     private void OnEnable()
     {
@@ -66,6 +69,13 @@ public class PlayerControl : MonoBehaviour
         var heading = targetPosition - currentPosition;
         var distance = heading.magnitude;
         var direction = heading / distance;
+        
+        if (float.IsNaN(direction.x) || float.IsNaN(direction.y) || float.IsNaN(direction.z))
+        {
+            return _lastvalidDirection;
+        }
+
+        _lastvalidDirection = direction;
         return direction;
     }
 
