@@ -1,8 +1,6 @@
 
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof( Player))]
 public class PlayerControl : MonoBehaviour
