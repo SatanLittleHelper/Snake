@@ -8,7 +8,6 @@ using UnityEngine.Events;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Head _player;
-    [SerializeField] private Camera _camera;
     private Coroutine _moveRoutine;
     private Vector3 _lastvalidDirection = Vector3.one;
     
@@ -57,13 +56,13 @@ public class PlayerControl : MonoBehaviour
         var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
         _player.Direction = GetDirrection(targetPosition, currentPosition);
       
-        while (_player.transform.position != targetPosition)
+        while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
         {
             _player.transform.position =
                 Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Speed * Time.deltaTime);
             OnPlayerMove?.Invoke();
-
             yield return null;
+            
         }
 
     }

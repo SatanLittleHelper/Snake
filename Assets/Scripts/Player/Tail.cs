@@ -1,6 +1,6 @@
 
     using System;
-    using System.Collections;
+    using System.Collections.Generic;
     using UnityEngine;
 
     public class Tail : MonoBehaviour
@@ -8,54 +8,58 @@
         [SerializeField] private TailElement[] _tailElements;
         [SerializeField] private Head _head;
         [SerializeField] private PlayerControl _control;
-        private PlayerMover _mover;
+        private Mover _mover;
+        private List<Coroutine> _allMoveCoroutines;
 
         private void Awake()
         {
-            _mover = FindObjectOfType<PlayerMover>();
+            _mover = FindObjectOfType<Mover>();
+            _allMoveCoroutines = new List<Coroutine>();
         }
+        
 
         private void OnEnable()
         {
-            _control.OnPlayerMove += PlayerMoved;
-            _mover.OnPlayerMove += PlayerMoved;
+            _control.OnPlayerMove += PlayerMoving;
+            _mover.OnMoving += PlayerMoving;
 
             
         } 
         private void OnDisable()
         {
-            _control.OnPlayerMove -= PlayerMoved;
-            _mover.OnPlayerMove -= PlayerMoved;
+            _control.OnPlayerMove -= PlayerMoving;
+            _mover.OnMoving -= PlayerMoving;
 
             
         }
 
-        private void PlayerMoved()
+        private void FixedUpdate()
         {
             ChangeTailPosition();
         }
+
+        private void PlayerMoving()
+        {
+            // ChangeTailPosition();
+        }
         private void ChangeTailPosition()
         {
+            
             var targetPosition = _head.transform.position;
-
             foreach (var tail in _tailElements)
             {
-                (tail.transform.position, targetPosition) = (targetPosition, tail.transform.position);
+                if ((targetPosition - tail.transform.position).sqrMagnitude >
+                    tail.GetComponent<MeshRenderer>().bounds.size.z / 2)
+                {
+                    (tail.transform.position, targetPosition) = (targetPosition, tail.transform.position);
 
-                // tail.transform.position = new Vector3(targetPosition.x, targetPosition.y, tailPosition.z);
+                }
+                
+                else
+                {
+                    break;
+                }
             }
         }
 
-        private IEnumerator MoveRoutine(TailElement tail, Vector3 target)
-        {
-            var currentPosition = tail.transform.position;
-            var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
-            while (tail.transform.position != targetPosition)
-            {
-                tail.transform.position =
-                    Vector3.MoveTowards(tail.transform.position, targetPosition, _head.Speed * Time.deltaTime);
-
-                yield return null;
-            }
-        }
     }
