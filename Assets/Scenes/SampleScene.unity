@@ -223,6 +223,14 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 278179032}
+    - target: {fileID: 6356321498295166737, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _head
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356321498295166737, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -271,7 +279,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6356321498295166737, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
 --- !u!1 &1042679459
 GameObject:

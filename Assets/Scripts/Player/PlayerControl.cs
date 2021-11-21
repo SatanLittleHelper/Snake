@@ -4,10 +4,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof( Player))]
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] private Head _player;
+    [SerializeField] private Player _player;
     private Coroutine _moveRoutine;
     private Vector3 _lastvalidDirection = Vector3.one;
     

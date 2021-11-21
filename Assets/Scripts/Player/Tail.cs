@@ -1,12 +1,12 @@
 
-    using System;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Serialization;
 
     public class Tail : MonoBehaviour
     {
         [SerializeField] private TailElement[] _tailElements;
-        [SerializeField] private Head _head;
+        [FormerlySerializedAs("_head")] [SerializeField] private Player player;
         [SerializeField] private PlayerControl _control;
         private Mover _mover;
         private List<Coroutine> _allMoveCoroutines;
@@ -35,17 +35,17 @@
 
         private void FixedUpdate()
         {
-            ChangeTailPosition();
+            // ChangeTailPosition();
         }
 
         private void PlayerMoving()
         {
-            // ChangeTailPosition();
+            ChangeTailPosition();
         }
         private void ChangeTailPosition()
         {
             
-            var targetPosition = _head.transform.position;
+            var targetPosition = player.transform.position;
             foreach (var tail in _tailElements)
             {
                 if ((targetPosition - tail.transform.position).sqrMagnitude >

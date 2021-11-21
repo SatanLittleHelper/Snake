@@ -1,4 +1,3 @@
-    using System;
     using System.Collections;
     using UnityEngine;
     using UnityEngine.Events;
@@ -6,11 +5,8 @@
     public class Mover : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Camera _camera;
-        private Head _player;
+        private Player _player;
         private RoadSpawner _spawner;
-        private PlayerControl _control;
-        private Road[] _allRoadElement;
         private Coroutine _moveCoroutine;
 
         public event UnityAction OnMoving;
@@ -28,10 +24,8 @@
 
         private void Awake()
         {
-            _player = FindObjectOfType<Head>();
+            _player = FindObjectOfType<Player>();
             _spawner = FindObjectOfType<RoadSpawner>();
-            _control = FindObjectOfType<PlayerControl>();
-            _allRoadElement = FindObjectsOfType<Road>();
         }
 
         private void SpawnEnded()
@@ -46,10 +40,8 @@
                 
                 while (true)
                 {
-                    
-                   Move(_player.gameObject, dir);
-                   Move(_camera.gameObject, dir);
-                   OnMoving?.Invoke();
+                    Move(_player.gameObject, _player.transform.position + dir);
+                    OnMoving?.Invoke();
                    
                     yield return null;
                    
@@ -57,9 +49,9 @@
             }
         }
 
-        private void Move(GameObject obj, Vector3 dir)
+        private void Move(GameObject obj, Vector3 target)
         {
-            obj.transform.position = Vector3.MoveTowards(obj.transform.position, obj.transform.position + dir, _speed * Time.deltaTime);
+            obj.transform.position = Vector3.MoveTowards(obj.transform.position, target, _speed * Time.deltaTime);
 
         }
 
