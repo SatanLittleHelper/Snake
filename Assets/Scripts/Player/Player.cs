@@ -26,5 +26,9 @@ using UnityEngine.Events;
         {
             OnCollisionWithTriger?.Invoke(other);
         }
-        
+
+        private void OnTriggerStay(Collider other)
+        {
+            OnCollisionWithTriger?.Invoke(other);
+        }
     }

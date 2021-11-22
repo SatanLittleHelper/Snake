@@ -233,6 +233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 208872587, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1527824440}
     - target: {fileID: 1443897605, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: _speed
       value: 5
@@ -522,6 +526,30 @@ PrefabInstance:
     - target: {fileID: 3293884220026010139, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
       propertyPath: m_Name
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220652001612, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220652001612, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220894160544, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293884220894160544, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942616384878912758, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247209590058862888, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}

@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     private Coroutine _moveRoutine;
     private Vector3 _lastvalidDirection = Vector3.one;
     private String _borderTag = "Border";
+    private float _validPositionX = 3.7f;
     
     public event UnityAction OnPlayerMove;
 
@@ -87,8 +88,7 @@ public class PlayerControl : MonoBehaviour
         if(!other.CompareTag(_borderTag))
             return;
         var playerPosition = _player.transform.position;
-        
-        playerPosition.x = other.transform.position.x - (_player.Bounds.size.x * _player.Direction.x);
+        playerPosition.x = _validPositionX * _player.Direction.x;
         _player.transform.position = playerPosition;
         
         if (_moveRoutine != null)
