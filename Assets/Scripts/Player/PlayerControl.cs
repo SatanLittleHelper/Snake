@@ -64,7 +64,6 @@ public class PlayerControl : MonoBehaviour
             yield return null;
             
         }
-        Debug.Log("Changed");
 
     }
 
@@ -87,7 +86,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(!other.CompareTag(_borderTag))
             return;
-        Debug.Log(other.name);
         var playerPosition = _player.transform.position;
         
         playerPosition.x = other.transform.position.x - (_player.Bounds.size.x * _player.Direction.x);

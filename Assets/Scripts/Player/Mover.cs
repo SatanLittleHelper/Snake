@@ -33,21 +33,23 @@
             StartMove();
            
         }
-        
-        private IEnumerator MoveRoutine (Vector3 dir)
+
+        private IEnumerator MoveRoutine(Vector3 dir)
         {
             {
-                
-                while (true)
+
+                while (_player)
                 {
                     Move(_player.gameObject, _player.transform.position + dir);
                     OnMoving?.Invoke();
-                   
+
                     yield return null;
-                   
+
                 }
             }
         }
+
+
 
         private void Move(GameObject obj, Vector3 target)
         {

@@ -1,12 +1,11 @@
 
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Serialization;
 
     public class Tail : MonoBehaviour
     {
         [SerializeField] private TailElement[] _tailElements;
-        [FormerlySerializedAs("_head")] [SerializeField] private Player player;
+        [SerializeField] private Player player;
         [SerializeField] private PlayerControl _control;
         private Mover _mover;
         private List<Coroutine> _allMoveCoroutines;
@@ -33,10 +32,6 @@
             
         }
 
-        private void FixedUpdate()
-        {
-            // ChangeTailPosition();
-        }
 
         private void PlayerMoving()
         {
