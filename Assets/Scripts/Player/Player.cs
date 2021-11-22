@@ -7,19 +7,14 @@ using UnityEngine.Events;
         [SerializeField] private float _speed;
         private MeshRenderer _renderer;
         private Bounds _bounds;
-        private Vector3 _direction;
 
 
         public Bounds Bounds => _bounds;
-        public Vector3 Direction
-        {
-            get => _direction;
-            set => _direction = value;
-        }
+        public Vector3 Direction { get; set; }
 
 
         public float Speed => _speed;
-        public event UnityAction<Collider> OnCollisionWithBorder;
+        public event UnityAction<Collider> OnCollisionWithTriger;
 
         private void Awake()
         {
@@ -29,7 +24,7 @@ using UnityEngine.Events;
 
         private void OnTriggerEnter(Collider other)
         {
-            OnCollisionWithBorder?.Invoke(other);
+            OnCollisionWithTriger?.Invoke(other);
         }
         
     }

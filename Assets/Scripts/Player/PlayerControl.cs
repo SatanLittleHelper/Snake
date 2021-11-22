@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Player _player;
     private Coroutine _moveRoutine;
     private Vector3 _lastvalidDirection = Vector3.one;
+    private String _borderTag = "Border";
     
     public event UnityAction OnPlayerMove;
 
@@ -16,12 +17,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.OnCollisionWithBorder += CollisionWithBorder;
+        _player.OnCollisionWithTriger += CollisionWithTriger;
     }
 
     private void OnDisable()
     {
-        _player.OnCollisionWithBorder -= CollisionWithBorder;
+        _player.OnCollisionWithTriger -= CollisionWithTriger;
 
     }
 
@@ -63,6 +64,7 @@ public class PlayerControl : MonoBehaviour
             yield return null;
             
         }
+        Debug.Log("Changed");
 
     }
 
@@ -81,8 +83,11 @@ public class PlayerControl : MonoBehaviour
         return direction;
     }
 
-    private void CollisionWithBorder(Collider other)
+    private void CollisionWithTriger(Collider other)
     {
+        if(!other.CompareTag(_borderTag))
+            return;
+        Debug.Log(other.name);
         var playerPosition = _player.transform.position;
         
         playerPosition.x = other.transform.position.x - (_player.Bounds.size.x * _player.Direction.x);

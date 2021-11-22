@@ -19,7 +19,7 @@ public class RoadSpawner : MonoBehaviour
 
     private void SpawnAllRoadsElement(int count)
     {
-        var offset = _firstRoadElement.GetComponent<MeshRenderer>().bounds.max.z;
+        var offset = _firstRoadElement.GetComponent<MeshRenderer>().bounds.size.z;
         var roadElement = _firstRoadElement;
         var position = roadElement.transform.position;
         
