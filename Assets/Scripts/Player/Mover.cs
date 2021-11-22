@@ -13,11 +13,11 @@
 
         private void OnEnable()
         {
-            _spawner.OnSpawnEnded += SpawnEnded;
+            _spawner.OnRoadSpawnEnded += RoadSpawnEnded;
         }
         private void OnDisable()
         {
-            _spawner.OnSpawnEnded -= SpawnEnded;
+            _spawner.OnRoadSpawnEnded -= RoadSpawnEnded;
 
         }
             
@@ -28,7 +28,7 @@
             _spawner = FindObjectOfType<RoadSpawner>();
         }
 
-        private void SpawnEnded()
+        private void RoadSpawnEnded()
         {
             StartMove();
            
