@@ -20,6 +20,6 @@
         {
             if (!other.CompareTag(_checkpointTag))
                 return;
-            Debug.Log("CheckpointReached");
+            // Debug.Log("CheckpointReached");
         }
     }

@@ -60,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
         {
             _player.transform.position =
-                Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Speed * Time.deltaTime);
+                Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Sensitivity * Time.deltaTime);
             OnPlayerMove?.Invoke();
             yield return null;
             

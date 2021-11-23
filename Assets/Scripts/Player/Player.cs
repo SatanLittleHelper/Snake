@@ -4,8 +4,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(MeshRenderer))]
     public class Player : MonoBehaviour
     {
-        [SerializeField] private float _speed;
-        private MeshRenderer _renderer;
+        [SerializeField] private float _sensitivity;
         private Bounds _bounds;
 
 
@@ -13,13 +12,12 @@ using UnityEngine.Events;
         public Vector3 Direction { get; set; }
 
 
-        public float Speed => _speed;
+        public float Sensitivity => _sensitivity;
         public event UnityAction<Collider> OnCollisionWithTriger;
 
         private void Awake()
         {
-            _renderer = GetComponent<MeshRenderer>();
-            _bounds = _renderer.bounds;
+            _bounds = GetComponent<MeshRenderer>().bounds;
         }
 
         private void OnTriggerEnter(Collider other)

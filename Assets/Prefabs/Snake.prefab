@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41c685ee8ba461abbbcf4bc2774ea19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _sensitivity: 20
 --- !u!1 &4463167527287541703
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +885,7 @@ MonoBehaviour:
   - {fileID: 387385391}
   - {fileID: 421089349}
   - {fileID: 136395715}
-  _head: {fileID: 1622862283}
+  player: {fileID: 1622862283}
   _control: {fileID: 2176164054732050817}
 --- !u!1 &5824618918113574032
 GameObject:
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ed702f78f844e7a1818ccfb3f04f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 5
 --- !u!1 &7223212169405490058
 GameObject:
   m_ObjectHideFlags: 0

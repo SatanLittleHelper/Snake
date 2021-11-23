@@ -31,7 +31,7 @@
 
             
         }
-
+        
 
         private void PlayerMoving()
         {
@@ -43,8 +43,9 @@
             var targetPosition = player.transform.position;
             foreach (var tail in _tailElements)
             {
-                if ((targetPosition - tail.transform.position).sqrMagnitude >
-                    tail.GetComponent<MeshRenderer>().bounds.size.z / 2)
+                if ((targetPosition - tail.transform.position).sqrMagnitude > 
+                    tail.GetComponent<MeshRenderer>().bounds.size.z /2)
+                    
                 {
                     (tail.transform.position, targetPosition) = (targetPosition, tail.transform.position);
 
@@ -56,5 +57,7 @@
                 }
             }
         }
+
+        
 
     }
