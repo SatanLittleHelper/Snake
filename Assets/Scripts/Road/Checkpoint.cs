@@ -19,7 +19,7 @@
         private void CheckpointReached(Collider other)
         {
             if (!other.CompareTag(_checkpointTag))
-                return;
-            // Debug.Log("CheckpointReached");
+                 Debug.Log("CheckpointReached");
+            //TODO: Implement here checkpointReach
         }
     }

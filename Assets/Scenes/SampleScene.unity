@@ -484,8 +484,8 @@ MonoBehaviour:
   - {fileID: 6099628317991301447, guid: 41cc48d17a0a941cbae5897798521f15, type: 3}
   - {fileID: 2417350680048532108, guid: f8b3f8fb089c94f658d3e92ef8ac0fcd, type: 3}
   _spawnPoints:
-  - {fileID: 3293884220147824761}
   - {fileID: 3293884220147824760}
+  - {fileID: 3293884220147824761}
   - {fileID: 3293884220147824759}
   _barrierCount: 5
   _roadSpawner: {fileID: 1500851666}
@@ -510,10 +510,6 @@ PrefabInstance:
     - target: {fileID: 3293884220026010119, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293884220026010119, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3293884220026010119, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,32 +555,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road
       objectReference: {fileID: 0}
-    - target: {fileID: 3293884220652001612, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293884220652001612, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293884220894160544, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293884220894160544, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3942616384878912758, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247209590058862888, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
 --- !u!114 &3293884220147824758 stripped
 MonoBehaviour:

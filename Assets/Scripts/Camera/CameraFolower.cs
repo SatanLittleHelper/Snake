@@ -18,7 +18,6 @@ using UnityEngine;
             var targetPosition =
                 new Vector3(cameraPostion.x, cameraPostion.y, _player.transform.position.z - _distance);
             _camera.transform.position = targetPosition;
-            //TODO: тут слишком дергано надо переписать завтра на movetowards
 
         }
     }
