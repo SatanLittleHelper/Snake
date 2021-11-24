@@ -23,10 +23,10 @@ namespace Barrier
         private void Spawn(Road road)
         {
             var roadPosition = road.transform.position;
-            Collectables lastTimeSpawned = null;
 
             for (int i = 0; i <= _barrierCount; i++)
             {
+                Collectables lastTimeSpawned = null;
 
                 foreach (var spawnPoint in _spawnPoints)
                 {
