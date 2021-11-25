@@ -1,15 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Barrier
 {
-    public class BarrierSpawner : MonoBehaviour
+    public class CollectablesSpawner : Spawner
     {
         [SerializeField] private Collectables[] _prefabs;
-        [SerializeField] private Transform[] _spawnPoints;
-        [SerializeField] private int _barrierCount;
-        [SerializeField] private RoadSpawner _roadSpawner;
-        private List<Collectables> _collectables;
+        
+
 
         private void OnEnable()
         {
@@ -19,25 +17,23 @@ namespace Barrier
         {
             _roadSpawner.OnRoadSpawnEnded -= StartSpawning;
         }
-
-        private void Spawn(Road road)
+        
+        protected override void SpawnTo(Road road)
         {
             var roadPosition = road.transform.position;
 
-            for (int i = 0; i <= _barrierCount; i++)
+            for (int i = 0; i < _count; i++)
             {
                 Collectables lastTimeSpawned = null;
 
                 foreach (var spawnPoint in _spawnPoints)
                 {
+                    var spawnPosition = new Vector3(spawnPoint.position.x, spawnPoint.position.y, roadPosition.z - 5f -  i * 5f);
 
                     var toSpawn = GetCollectableForSpawn(lastTimeSpawned);
                     lastTimeSpawned = toSpawn;
-                    Debug.Log(toSpawn);
-                    spawnPoint.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, roadPosition.z - 5f -  i * 5f);
-                    var obj = Instantiate(toSpawn, spawnPoint.position, Quaternion.identity);
+                    var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
                     obj.transform.SetParent(road.transform);
-                    _collectables.Add(obj);
                 }
                
             }
@@ -45,6 +41,8 @@ namespace Barrier
 
 
         }
+
+        
 
         private Collectables GetCollectableForSpawn(Collectables lastTimeSpawned)
         {
@@ -55,14 +53,7 @@ namespace Barrier
             return toSpawn;
         }
 
-        private void StartSpawning()
-        {
-            _collectables = new List<Collectables>();
-            foreach (var road in _roadSpawner.AllRoads)
-            {
-                Spawn(road);
-            }
-        }
+        
         
     }
 }
