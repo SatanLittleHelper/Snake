@@ -7,7 +7,7 @@
         [SerializeField] protected RoadSpawner _roadSpawner;
         [SerializeField] protected int _count;
         [SerializeField] protected Transform[] _spawnPoints;
-        public event UnityAction OnSpawnEnded;
+        public event UnityAction SpawnEnded;
 
         protected void StartSpawning()
         {
@@ -16,7 +16,7 @@
                 SpawnTo(road);
                 
             }
-            OnSpawnEnded?.Invoke();
+            SpawnEnded?.Invoke();
 
         }
 

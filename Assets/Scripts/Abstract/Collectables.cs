@@ -8,12 +8,12 @@ public abstract class Collectables : MonoBehaviour
         private void OnEnable()
         {
             _player = FindObjectOfType<Player>();
-            _player.OnCollisionWithTriger += Reached;
+            _player.CollisionWithTriger += Reached;
             
         }
         private void OnDisable()
         {
-            _player.OnCollisionWithTriger -= Reached;
+            _player.CollisionWithTriger -= Reached;
             
         }
 

@@ -12,18 +12,18 @@ public class PlayerControl : MonoBehaviour
     private String _borderTag = "Border";
     private float _validPositionX = 3.7f;
     
-    public event UnityAction OnPlayerMove;
+    public event UnityAction PlayerMove;
 
 
 
     private void OnEnable()
     {
-        _player.OnCollisionWithTriger += CollisionWithTriger;
+        _player.CollisionWithTriger += CollisionWithTriger;
     }
 
     private void OnDisable()
     {
-        _player.OnCollisionWithTriger -= CollisionWithTriger;
+        _player.CollisionWithTriger -= CollisionWithTriger;
 
     }
 
@@ -61,7 +61,7 @@ public class PlayerControl : MonoBehaviour
         {
             _player.transform.position =
                 Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Sensitivity * Time.deltaTime);
-            OnPlayerMove?.Invoke();
+            PlayerMove?.Invoke();
             yield return null;
             
         }
@@ -89,6 +89,8 @@ public class PlayerControl : MonoBehaviour
             return;
         var playerPosition = _player.transform.position;
         playerPosition.x = _validPositionX * _player.Direction.x;
+        //TODO: it's working with bug
+        //some times snake jumping to other edge, because i use *_player.Direction
         _player.transform.position = playerPosition;
         
         if (_moveRoutine != null)

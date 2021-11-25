@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43941274, g: 0.48775107, b: 0.5679888, a: 1}
+  m_IndirectSpecularColor: {r: 0.4369702, g: 0.4847492, b: 0.5656482, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,14 +205,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278179030}
-  m_LocalRotation: {x: 0.30051517, y: -0.033949688, z: 0.010704294, w: 0.95311254}
-  m_LocalPosition: {x: 0.52, y: 11.01, z: -15.01}
+  m_LocalRotation: {x: 0.3006342, y: -0.020805145, z: 0.0065598357, w: 0.9534901}
+  m_LocalPosition: {x: 0.52, y: 11.01, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1042679460}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 35, y: -4.08, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: -2.5, z: 0}
 --- !u!114 &278179034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 278179032}
+  _distance: 14
 --- !u!1 &388088491
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +285,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1443897605, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652688951487049145, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
       value: Snake

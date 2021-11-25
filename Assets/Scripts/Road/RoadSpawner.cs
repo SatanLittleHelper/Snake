@@ -9,7 +9,7 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private Road _roadPrefab;
     private List<Road> _allRoadElements;
     public List<Road> AllRoads => _allRoadElements;
-    public event UnityAction OnRoadSpawnEnded;
+    public event UnityAction RoadSpawnEnded;
 
     
     private void Start()
@@ -32,7 +32,7 @@ public class RoadSpawner : MonoBehaviour
             _allRoadElements.Add(roadElement);
             
         }
-        OnRoadSpawnEnded?.Invoke();
+        RoadSpawnEnded?.Invoke();
         
     }
 }

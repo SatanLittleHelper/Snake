@@ -4,8 +4,8 @@ using UnityEngine;
     public class CameraFolower : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
+        [SerializeField]private float _distance = 17f;
         private Player _player;
-        private float _distance = 10f;
 
         private void Start()
         {

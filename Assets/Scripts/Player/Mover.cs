@@ -9,15 +9,15 @@
         private RoadSpawner _spawner;
         private Coroutine _moveCoroutine;
 
-        public event UnityAction OnMoving;
+        public event UnityAction Moving;
 
         private void OnEnable()
         {
-            _spawner.OnRoadSpawnEnded += RoadSpawnEnded;
+            _spawner.RoadSpawnEnded += RoadSpawnEnded;
         }
         private void OnDisable()
         {
-            _spawner.OnRoadSpawnEnded -= RoadSpawnEnded;
+            _spawner.RoadSpawnEnded -= RoadSpawnEnded;
 
         }
             
@@ -41,7 +41,7 @@
                 while (_player)
                 {
                     Move(_player.gameObject, _player.transform.position + dir);
-                    OnMoving?.Invoke();
+                    Moving?.Invoke();
 
                     yield return null;
 

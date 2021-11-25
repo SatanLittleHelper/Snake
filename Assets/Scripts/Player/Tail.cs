@@ -19,15 +19,15 @@
 
         private void OnEnable()
         {
-            _control.OnPlayerMove += PlayerMoving;
-            _mover.OnMoving += PlayerMoving;
+            _control.PlayerMove += PlayerMoving;
+            _mover.Moving += PlayerMoving;
 
             
         } 
         private void OnDisable()
         {
-            _control.OnPlayerMove -= PlayerMoving;
-            _mover.OnMoving -= PlayerMoving;
+            _control.PlayerMove -= PlayerMoving;
+            _mover.Moving -= PlayerMoving;
 
             
         }

@@ -8,12 +8,12 @@ namespace Barrier
         
         private void OnEnable()
         {
-            _roadSpawner.OnRoadSpawnEnded += StartSpawning;
+            _roadSpawner.RoadSpawnEnded += StartSpawning;
             
         }
         private void OnDisable()
         {
-            _roadSpawner.OnRoadSpawnEnded -= StartSpawning;
+            _roadSpawner.RoadSpawnEnded -= StartSpawning;
             
         }
         

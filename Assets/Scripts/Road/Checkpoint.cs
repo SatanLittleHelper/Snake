@@ -9,11 +9,11 @@
 
         private void OnEnable()
         {
-            _player.OnCollisionWithTriger += CheckpointReached;
+            _player.CollisionWithTriger += CheckpointReached;
         }
         private void OnDisable()
         {
-            _player.OnCollisionWithTriger -= CheckpointReached;
+            _player.CollisionWithTriger -= CheckpointReached;
         }
 
         private void CheckpointReached(Collider other)

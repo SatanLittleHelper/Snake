@@ -12,12 +12,12 @@ namespace Human
         
         private void OnEnable()
         {
-            _collectablesSpawner.OnSpawnEnded += StartSpawning;
+            _collectablesSpawner.SpawnEnded += StartSpawning;
             
         }
         private void OnDisable()
         {
-            _collectablesSpawner.OnSpawnEnded -= StartSpawning;
+            _collectablesSpawner.SpawnEnded -= StartSpawning;
             
         }
 
