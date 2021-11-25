@@ -42,6 +42,7 @@ namespace Human
                         var toSpawn = GetHumanForSpawn();
                         var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
                         obj.transform.SetParent(road.transform);
+                        //TODO: Here implement switch colors
                     }
                 }
                     
