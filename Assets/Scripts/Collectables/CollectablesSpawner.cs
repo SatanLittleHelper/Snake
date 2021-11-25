@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Barrier
 {
@@ -7,15 +6,15 @@ namespace Barrier
     {
         [SerializeField] private Collectables[] _prefabs;
         
-
-
         private void OnEnable()
         {
             _roadSpawner.OnRoadSpawnEnded += StartSpawning;
+            
         }
         private void OnDisable()
         {
             _roadSpawner.OnRoadSpawnEnded -= StartSpawning;
+            
         }
         
         protected override void SpawnTo(Road road)
@@ -34,11 +33,10 @@ namespace Barrier
                     lastTimeSpawned = toSpawn;
                     var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
                     obj.transform.SetParent(road.transform);
+                    
                 }
                
             }
-            
-
 
         }
 
@@ -51,9 +49,9 @@ namespace Barrier
                 toSpawn = GetCollectableForSpawn(toSpawn);
 
             return toSpawn;
+            
         }
-
-        
         
     }
+    
 }
