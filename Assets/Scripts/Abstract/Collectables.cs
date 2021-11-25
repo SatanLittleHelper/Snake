@@ -9,10 +9,12 @@ public abstract class Collectables : MonoBehaviour
         {
             _player = FindObjectOfType<Player>();
             _player.OnCollisionWithTriger += Reached;
+            
         }
         private void OnDisable()
         {
             _player.OnCollisionWithTriger -= Reached;
+            
         }
 
         protected abstract void Reached(Collider other);
