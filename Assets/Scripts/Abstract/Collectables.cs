@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public abstract class Collectables : MonoBehaviour
     {
-        [SerializeField] protected Player _player;
+        protected Player _player;
+        public event UnityAction GameOver;
+
+        private void Awake()
+        {
+            _player = FindObjectOfType<Player>();
+        }
 
         private void OnEnable()
         {
@@ -19,4 +26,8 @@ public abstract class Collectables : MonoBehaviour
 
         protected abstract void Reached(Collider other);
 
+        protected void OnGameOver()
+        {
+            GameOver?.Invoke();
+        }
     }

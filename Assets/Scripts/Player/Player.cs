@@ -28,5 +28,10 @@ using UnityEngine.Events;
         private void OnTriggerStay(Collider other)
         {
             CollisionWithTrigger?.Invoke(other);
+            if (other.TryGetComponent(out Checkpoint checkpoint))
+            {
+                GetComponent<MeshRenderer>().material = checkpoint.GetComponent<MeshRenderer>().material;
+
+            }
         }
     }

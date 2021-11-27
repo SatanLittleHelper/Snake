@@ -9,11 +9,11 @@ namespace Barrier
         protected override void Reached(Collider other)
         {
 
-            if (other.TryGetComponent(out Barrier barrier))
+            if (other.TryGetComponent(out Barrier _))
             {
-                
+                //TODO implemen here dead
+
             }
-            //TODO implemen here dead
         }
     }
 }
