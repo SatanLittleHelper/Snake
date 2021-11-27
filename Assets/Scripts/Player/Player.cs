@@ -13,7 +13,7 @@ using UnityEngine.Events;
 
 
         public float Sensitivity => _sensitivity;
-        public event UnityAction<Collider> CollisionWithTriger;
+        public event UnityAction<Collider> CollisionWithTrigger;
 
         private void Awake()
         {
@@ -22,11 +22,11 @@ using UnityEngine.Events;
 
         private void OnTriggerEnter(Collider other)
         {
-            CollisionWithTriger?.Invoke(other);
+            CollisionWithTrigger?.Invoke(other);
         }
 
         private void OnTriggerStay(Collider other)
         {
-            CollisionWithTriger?.Invoke(other);
+            CollisionWithTrigger?.Invoke(other);
         }
     }

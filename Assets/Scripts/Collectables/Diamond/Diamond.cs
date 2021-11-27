@@ -7,9 +7,13 @@ namespace Diamond
     {
         protected override void Reached(Collider other)
         {
-            if(other.TryGetComponent(out Diamond diamond))
+            if (other.TryGetComponent(out Diamond diamond))
+            {
                 Debug.Log("Get diamond");
+                diamond.gameObject.SetActive(false);
+            }   
             //TODO: implement here diamond getting
+            return;
         }
         
     }

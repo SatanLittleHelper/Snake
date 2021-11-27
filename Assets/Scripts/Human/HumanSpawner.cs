@@ -1,5 +1,8 @@
+using System;
 using Barrier;
+using DefaultNamespace;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Human
 {
@@ -9,7 +12,13 @@ namespace Human
         [SerializeField] private CollectablesSpawner _collectablesSpawner;
         private HumanSpawnPoint[] _humanSpawnPoints;
         private int _humansInOnePoint = 4;
-        
+        private Colors _colors;
+
+        private void Awake()
+        {
+            _colors = FindObjectOfType<Colors>();
+        }
+
         private void OnEnable()
         {
             _collectablesSpawner.SpawnEnded += StartSpawning;
@@ -24,12 +33,18 @@ namespace Human
         protected override void SpawnTo(Road road)
         {
             var roadPosition = road.transform.position;
+            Material[] posibleoMaterial =
+            {
+                road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material,
+                _colors.AllColors[Random.Range(0, _colors.AllColors.Length)]
+            };
 
             for (int i = 0; i < _count; i++)
             {
                 foreach (var spawnPoint in _spawnPoints)
                 {
                     _humanSpawnPoints = HumanSpawnPoint.GetAllPosibleSpawnPoint();
+                    var humanColor = posibleoMaterial[Random.Range(0, posibleoMaterial.Length)];
 
                     for (int j = 0; j < _humansInOnePoint; j++)
                     {
@@ -38,8 +53,8 @@ namespace Human
                         spawnPosition += GetHumanSpawnPosition();
                         var toSpawn = GetHumanForSpawn();
                         var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
+                        obj.GetComponent<MeshRenderer>().material = humanColor;
                         obj.transform.SetParent(road.transform);
-                        //TODO: Here implement switch colors
                         
                     }
                     

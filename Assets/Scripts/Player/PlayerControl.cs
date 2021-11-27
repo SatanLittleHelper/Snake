@@ -18,12 +18,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.CollisionWithTriger += CollisionWithTriger;
+        _player.CollisionWithTrigger += CollisionWithTrigger;
     }
 
     private void OnDisable()
     {
-        _player.CollisionWithTriger -= CollisionWithTriger;
+        _player.CollisionWithTrigger -= CollisionWithTrigger;
 
     }
 
@@ -83,7 +83,7 @@ public class PlayerControl : MonoBehaviour
         return direction;
     }
 
-    private void CollisionWithTriger(Collider other)
+    private void CollisionWithTrigger(Collider other)
     {
         if(!other.CompareTag(_borderTag))
             return;
