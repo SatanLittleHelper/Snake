@@ -8,10 +8,12 @@ namespace Barrier
        
         protected override void Reached(Collider other)
         {
-            
-            if(other.TryGetComponent(out Barrier barrier))
+
+            if (other.TryGetComponent(out Barrier barrier))
+            {
+                
+            }
             //TODO implemen here dead
-            return;
         }
     }
 }

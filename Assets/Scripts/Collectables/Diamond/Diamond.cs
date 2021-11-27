@@ -12,7 +12,6 @@ namespace Diamond
                 diamond.gameObject.SetActive(false);
             }   
             //TODO: implement here diamond getting
-            return;
         }
         
     }

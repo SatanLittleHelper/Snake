@@ -1,10 +1,8 @@
 
-using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 public class RoadSpawner : MonoBehaviour
 {
@@ -34,15 +32,16 @@ public class RoadSpawner : MonoBehaviour
         var offset = _roadPrefab.GetComponent<MeshRenderer>().bounds.size.z;
         var roadElement = _roadPrefab;
         var position = roadElement.transform.position;
-        var colors = _colors.AllColors;
-        
+        Material lastColor = null;
         
         for (int i = 0; i < count; i++)
         {
+            
             position = new Vector3(position.x, position.y, position.z + offset);
             roadElement = Instantiate(roadElement, position, Quaternion.identity, transform);
-            var checkpint =  roadElement.GetComponentInChildren<Checkpoint>();
-            checkpint.GetComponent<MeshRenderer>().material = colors[Random.Range(0, colors.Length)];
+            var checkpoint =  roadElement.GetComponentInChildren<Checkpoint>();
+            lastColor = _colors.GetRandomColorWithout(lastColor);
+            checkpoint.GetComponent<MeshRenderer>().material = lastColor;
            
             _allRoadElements.Add(roadElement);
             

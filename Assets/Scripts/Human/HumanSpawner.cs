@@ -64,19 +64,24 @@ namespace Human
 
         private Material[] GetAllPosibleMaterials(Road road)
         {
+            var checkpointColor = road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material;
             Material[] posibleoMaterial =
             {
-                road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material,
-                _colors.AllColors[Random.Range(0, _colors.AllColors.Length)]
+                checkpointColor,
+                _colors.GetRandomColorWithout(checkpointColor)
             };
             return posibleoMaterial;
         }
 
         private Material GetHumanMaterial(Material[] AllMaterial, Material lastMaterial)
         {
+            if (lastMaterial == null) return AllMaterial[Random.Range(0, AllMaterial.Length)];
+
             var humanColor = AllMaterial[Random.Range(0, AllMaterial.Length)];
-            if (humanColor == lastMaterial)
+            if (humanColor.color == lastMaterial.color)
+            {
                 humanColor = GetHumanMaterial(AllMaterial, lastMaterial);
+            }
             return humanColor;
 
         }
