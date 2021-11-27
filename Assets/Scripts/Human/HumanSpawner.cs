@@ -1,4 +1,3 @@
-using System;
 using Barrier;
 using DefaultNamespace;
 using UnityEngine;
@@ -33,18 +32,17 @@ namespace Human
         protected override void SpawnTo(Road road)
         {
             var roadPosition = road.transform.position;
-            Material[] posibleoMaterial =
-            {
-                road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material,
-                _colors.AllColors[Random.Range(0, _colors.AllColors.Length)]
-            };
+            var posibleoMaterial = GetAllPosibleMaterials(road);
 
             for (int i = 0; i < _count; i++)
             {
+                Material lastMaterial = null;
+
                 foreach (var spawnPoint in _spawnPoints)
                 {
                     _humanSpawnPoints = HumanSpawnPoint.GetAllPosibleSpawnPoint();
-                    var humanColor = posibleoMaterial[Random.Range(0, posibleoMaterial.Length)];
+                    var currentMaterial = GetHumanMaterial(posibleoMaterial, lastMaterial);
+                    lastMaterial = currentMaterial;
 
                     for (int j = 0; j < _humansInOnePoint; j++)
                     {
@@ -53,7 +51,7 @@ namespace Human
                         spawnPosition += GetHumanSpawnPosition();
                         var toSpawn = GetHumanForSpawn();
                         var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
-                        obj.GetComponent<MeshRenderer>().material = humanColor;
+                        obj.GetComponent<MeshRenderer>().material = currentMaterial;
                         obj.transform.SetParent(road.transform);
                         
                     }
@@ -61,6 +59,25 @@ namespace Human
                 }
                     
             }
+
+        }
+
+        private Material[] GetAllPosibleMaterials(Road road)
+        {
+            Material[] posibleoMaterial =
+            {
+                road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material,
+                _colors.AllColors[Random.Range(0, _colors.AllColors.Length)]
+            };
+            return posibleoMaterial;
+        }
+
+        private Material GetHumanMaterial(Material[] AllMaterial, Material lastMaterial)
+        {
+            var humanColor = AllMaterial[Random.Range(0, AllMaterial.Length)];
+            if (humanColor == lastMaterial)
+                humanColor = GetHumanMaterial(AllMaterial, lastMaterial);
+            return humanColor;
 
         }
         private Human GetHumanForSpawn()

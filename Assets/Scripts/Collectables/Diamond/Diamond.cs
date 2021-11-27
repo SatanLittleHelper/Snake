@@ -9,7 +9,6 @@ namespace Diamond
         {
             if (other.TryGetComponent(out Diamond diamond))
             {
-                Debug.Log("Get diamond");
                 diamond.gameObject.SetActive(false);
             }   
             //TODO: implement here diamond getting

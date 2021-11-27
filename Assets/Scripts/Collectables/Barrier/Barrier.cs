@@ -10,7 +10,6 @@ namespace Barrier
         {
             
             if(other.TryGetComponent(out Barrier barrier))
-                Debug.Log("dead");
             //TODO implemen here dead
             return;
         }
