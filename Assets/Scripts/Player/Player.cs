@@ -21,10 +21,7 @@ using UnityEngine.Events;
             _bounds = GetComponent<MeshRenderer>().bounds;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            CollisionWithTrigger?.Invoke(other);
-        }
+       
 
         private void OnTriggerStay(Collider other)
         {

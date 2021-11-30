@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 278179031}
   - component: {fileID: 278179034}
   - component: {fileID: 278179035}
+  - component: {fileID: 278179036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -535,6 +536,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0d208aff085384c57bb1072e4ed11b8a, type: 2}
   - {fileID: 2100000, guid: 170a76b68a6bf4b8e81daf2ceb0c775e, type: 2}
   - {fileID: 2100000, guid: a00c71f8f53bf4c23b9fcc2b884cafe9, type: 2}
+--- !u!114 &278179036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278179030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947ab6a425114a2bab459271c80e6342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countToStart: 3
 --- !u!1 &388088491
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,11 +733,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427216201}
   m_CullTransparentMesh: 1
---- !u!4 &590155891 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7085042553931916446, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
-  m_PrefabInstance: {fileID: 784878511}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &675128364
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,10 +858,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6652688951487049145, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -901,8 +906,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2449945825352209823, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
 --- !u!1 &886767158
 GameObject:
@@ -1036,7 +1040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1379,50 +1383,6 @@ MonoBehaviour:
   _prefabs:
   - {fileID: 6099628317991301447, guid: 41cc48d17a0a941cbae5897798521f15, type: 3}
   - {fileID: 2417350680048532108, guid: f8b3f8fb089c94f658d3e92ef8ac0fcd, type: 3}
---- !u!1 &1572132756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1572132757}
-  - component: {fileID: 1572132758}
-  m_Layer: 2
-  m_Name: Mouth
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1572132757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572132756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 590155891}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1572132758
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572132756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.028120995}
-  m_Center: {x: 0, y: 0, z: 0.4859395}
 --- !u!1 &1745557203
 GameObject:
   m_ObjectHideFlags: 0

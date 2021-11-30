@@ -11,13 +11,17 @@ namespace Diamond
         private int _count;
         public event UnityAction<int> CountChanged;
 
-        protected override void Reached(Collider other)
+        protected override void OnEat(Collider other)
         {
             if (!other.TryGetComponent(out Diamond _) ) return;
 
-            base.Reached(other);
+            base.OnEat(other);
             _count++;
             CountChanged?.Invoke(_count);
+        }
+
+        protected override void Reached(Collider other)
+        {
         }
     }
 }

@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,21 +12,35 @@ public class PlayerControl : MonoBehaviour
     private Vector3 _lastvalidDirection = Vector3.one;
     private String _borderTag = "Border";
     private float _validPositionX = 3.7f;
+    private Fever _fever;
+    private bool _feverEnabled;
     
     public event UnityAction PlayerMove;
 
 
+    private void Awake()
+    {
+        _fever = FindObjectOfType<Fever>();
+    }
 
     private void OnEnable()
     {
         _player.CollisionWithTrigger += CollisionWithTrigger;
+        _fever.FeverStarted += OnFever;
+        _fever.FeverWillEndSoon += OnFeverWillEndSoon;
     }
 
     private void OnDisable()
     {
         _player.CollisionWithTrigger -= CollisionWithTrigger;
+        _fever.FeverStarted -= OnFever;
+        _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
+
+
 
     }
+
+   
 
     private void Update()
     {
@@ -35,7 +50,18 @@ public class PlayerControl : MonoBehaviour
         }
         
     }
-
+    private void OnFeverWillEndSoon()
+    {
+        _feverEnabled = false;
+    }
+    private void OnFever(bool arg0)
+    {
+        Debug.Log("start");
+        if (_moveRoutine != null)
+            StopCoroutine(_moveRoutine);
+        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
+        _feverEnabled = arg0;
+    }
     private void Move(Vector3 position)
     {
         if (Camera.main is null) return;
@@ -55,6 +81,9 @@ public class PlayerControl : MonoBehaviour
     {
         var currentPosition = _player.transform.position;
         var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
+        if (_feverEnabled) 
+            targetPosition = new Vector3(0f, currentPosition.y, currentPosition.z);
+       
         _player.Direction = GetDirrection(targetPosition, currentPosition);
       
         while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
