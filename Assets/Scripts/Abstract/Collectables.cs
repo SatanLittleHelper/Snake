@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 
 public abstract class Collectables : MonoBehaviour
     {
         protected Player _player;
-        public event UnityAction GameOver;
 
         private void Awake()
         {
@@ -25,9 +23,5 @@ public abstract class Collectables : MonoBehaviour
         }
 
         protected abstract void Reached(Collider other);
-
-        protected void OnGameOver()
-        {
-            GameOver?.Invoke();
-        }
+        
     }

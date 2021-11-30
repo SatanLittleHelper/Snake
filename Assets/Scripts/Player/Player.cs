@@ -17,6 +17,7 @@ using UnityEngine.Events;
 
         private void Awake()
         {
+            Time.timeScale = 1;
             _bounds = GetComponent<MeshRenderer>().bounds;
         }
 
