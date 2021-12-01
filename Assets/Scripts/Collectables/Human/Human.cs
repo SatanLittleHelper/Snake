@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,11 +9,6 @@ namespace Human
         public event UnityAction<int> CountChanged;
         public event UnityAction GameOver;
         
-
-        protected override void Reached(Collider other)
-        {
-        }
-
         protected override void OnEat(Collider other)
         {
             if (!other.TryGetComponent(out Human _) ) return;
@@ -27,7 +21,6 @@ namespace Human
                 CountChanged?.Invoke(_count);
                 
             }
-                
             else
             {
                 GameOver?.Invoke();
@@ -35,6 +28,11 @@ namespace Human
             }
 
         }
+        protected override void Reached(Collider other)
+        {
+            
+        }
         
     }
+    
 }

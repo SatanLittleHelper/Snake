@@ -2,12 +2,11 @@ using DefaultNamespace;
 using DefaultNamespace.Player;
 using UnityEngine;
 
-
 public abstract class Collectables : MonoBehaviour
     {
         protected Player _player;
         protected Mouth _mouth;
-        protected Fever _fever;
+        private Fever _fever;
         protected bool _feverEnable;
 
 
@@ -37,5 +36,6 @@ public abstract class Collectables : MonoBehaviour
         private void OnFever(bool state)
         {
             _feverEnable = state;
+            
         }
     }

@@ -18,6 +18,7 @@
             _spawner.RoadSpawnEnded += RoadSpawnEnded;
             _fever.FeverStarted += OnFever;
             _fever.FeverWillEndSoon += OnFeverWillEndSoon;
+            
         }
         private void OnDisable()
         {
@@ -27,14 +28,14 @@
 
         }
             
-
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
             _spawner = FindObjectOfType<RoadSpawner>();
             _fever = FindObjectOfType<Fever>();
+            
         }
-
+        
         private void RoadSpawnEnded()
         {
             StartMove();
@@ -43,21 +44,18 @@
 
         private IEnumerator MoveRoutine(Vector3 dir)
         {
+            while (_player)
             {
+                Move(_player.gameObject, _player.transform.position + dir);
+                Moving?.Invoke();
 
-                while (_player)
-                {
-                    Move(_player.gameObject, _player.transform.position + dir);
-                    Moving?.Invoke();
+                yield return null;
 
-                    yield return null;
-
-                }
             }
+            
         }
 
-
-
+        
         private void Move(GameObject obj, Vector3 target)
         {
             obj.transform.position = Vector3.MoveTowards(obj.transform.position, target, _speed * Time.deltaTime);
@@ -73,6 +71,7 @@
             }
             
             _moveCoroutine = StartCoroutine(MoveRoutine(Vector3.forward));
+            
         }
 
         private void OnFever(bool state)
@@ -84,5 +83,7 @@
         private void OnFeverWillEndSoon()
         {
             _speed /= 3;
+            
         }
+        
     }

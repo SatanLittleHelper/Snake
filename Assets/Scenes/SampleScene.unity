@@ -1381,8 +1381,8 @@ MonoBehaviour:
   - {fileID: 3293884220147824761}
   - {fileID: 3293884220147824759}
   _prefabs:
-  - {fileID: 6099628317991301447, guid: 41cc48d17a0a941cbae5897798521f15, type: 3}
-  - {fileID: 2417350680048532108, guid: f8b3f8fb089c94f658d3e92ef8ac0fcd, type: 3}
+  - {fileID: 1418962947148833443, guid: af16961524284e54491133548920258b, type: 3}
+  - {fileID: -5697293043290607602, guid: aa64b9ae639024c5097e12b27ac1d84c, type: 3}
 --- !u!1 &1745557203
 GameObject:
   m_ObjectHideFlags: 0

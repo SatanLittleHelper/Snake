@@ -16,6 +16,7 @@ namespace Human
         private void Awake()
         {
             _colors = FindObjectOfType<Colors>();
+            
         }
 
         private void OnEnable()
@@ -66,11 +67,13 @@ namespace Human
         {
             var checkpointColor = road.GetComponentInChildren<Checkpoint>().GetComponent<MeshRenderer>().material;
             Material[] posibleoMaterial =
-            {
-                checkpointColor,
-                _colors.GetRandomColorWithout(checkpointColor)
-            };
+                {
+                    checkpointColor,
+                    _colors.GetRandomColorWithout(checkpointColor)
+                };
+            
             return posibleoMaterial;
+            
         }
 
         private Material GetHumanMaterial(Material[] AllMaterial, Material lastMaterial)
@@ -79,9 +82,8 @@ namespace Human
 
             var humanColor = AllMaterial[Random.Range(0, AllMaterial.Length)];
             if (humanColor.color == lastMaterial.color)
-            {
                 humanColor = GetHumanMaterial(AllMaterial, lastMaterial);
-            }
+            
             return humanColor;
 
         }
@@ -94,11 +96,15 @@ namespace Human
         private Vector3 GetHumanSpawnPosition()
         {
             var humanSpawnPoint = _humanSpawnPoints[Random.Range(0, _humanSpawnPoints.Length)];
+            
             if (humanSpawnPoint.Taken)
                humanSpawnPoint.Position = GetHumanSpawnPosition();
+            
             humanSpawnPoint.Taken = true;
             return humanSpawnPoint.Position;
             
         }
+        
     }
+    
 }

@@ -5,7 +5,6 @@ namespace Human
     public class HumanSpawnPoint
     {
         public Vector3 Position { get; set; }
-
         public bool Taken { get; set; }
 
         public static HumanSpawnPoint[] GetAllPosibleSpawnPoint()
@@ -20,7 +19,6 @@ namespace Human
             HumanSpawnPoint leftUp = new HumanSpawnPoint();
             HumanSpawnPoint rightUp = new HumanSpawnPoint();
 
-            
             zero.Position = Vector3.zero;
             left.Position = new Vector3(-1f,0,0);
             right.Position = new Vector3(1f,0,0);
@@ -31,12 +29,13 @@ namespace Human
             leftUp.Position = new Vector3(-1f,0,1);
             rightUp.Position = new Vector3(1f,0,1);
 
-
-
             HumanSpawnPoint[] allPosibleSpawnPoint =
                 {zero, left, right, up, down, leftDown, leftUp, rightDown, rightUp};
+            
            return allPosibleSpawnPoint;
+           
         }
         
     }
+    
 }

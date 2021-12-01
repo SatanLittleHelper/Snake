@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
@@ -24,7 +23,6 @@ public class RoadSpawner : MonoBehaviour
         _allRoadElements = new List<Road>();
         SpawnAllRoadsElement(_roadFragmentCount);
         
-        
     }
     
     private void SpawnAllRoadsElement(int count)
@@ -36,7 +34,6 @@ public class RoadSpawner : MonoBehaviour
         
         for (int i = 0; i < count; i++)
         {
-            
             position = new Vector3(position.x, position.y, position.z + offset);
             roadElement = Instantiate(roadElement, position, Quaternion.identity, transform);
             var checkpoint =  roadElement.GetComponentInChildren<Checkpoint>();
@@ -49,4 +46,5 @@ public class RoadSpawner : MonoBehaviour
         RoadSpawnEnded?.Invoke();
         
     }
+    
 }

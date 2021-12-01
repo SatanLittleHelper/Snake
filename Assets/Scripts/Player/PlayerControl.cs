@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using DefaultNamespace;
@@ -17,10 +16,10 @@ public class PlayerControl : MonoBehaviour
     
     public event UnityAction PlayerMove;
 
-
     private void Awake()
     {
         _fever = FindObjectOfType<Fever>();
+        
     }
 
     private void OnEnable()
@@ -28,6 +27,7 @@ public class PlayerControl : MonoBehaviour
         _player.CollisionWithTrigger += CollisionWithTrigger;
         _fever.FeverStarted += OnFever;
         _fever.FeverWillEndSoon += OnFeverWillEndSoon;
+        
     }
 
     private void OnDisable()
@@ -36,51 +36,54 @@ public class PlayerControl : MonoBehaviour
         _fever.FeverStarted -= OnFever;
         _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
 
-
-
     }
-
-   
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
             Move(Input.mousePosition);
+            
         }
         
     }
+    
     private void OnFeverWillEndSoon()
     {
         _feverEnabled = false;
+        
     }
+    
     private void OnFever(bool arg0)
     {
-        Debug.Log("start");
         if (_moveRoutine != null)
             StopCoroutine(_moveRoutine);
+        
         _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
         _feverEnabled = arg0;
+        
     }
+    
     private void Move(Vector3 position)
     {
         if (Camera.main is null) return;
+        
         var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
 
         if (ray.Length <= 0) return;
        
         if (_moveRoutine != null)
-        {
             StopCoroutine(_moveRoutine);
-        }
             
         _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(ray[0].point));
 
     }
+    
     private IEnumerator ChangePlayerPositionRoutine(Vector3 target)
     {
         var currentPosition = _player.transform.position;
         var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
+        
         if (_feverEnabled) 
             targetPosition = new Vector3(0f, currentPosition.y, currentPosition.z);
        
@@ -104,18 +107,18 @@ public class PlayerControl : MonoBehaviour
         var direction = heading / distance;
         
         if (float.IsNaN(direction.x) || float.IsNaN(direction.y) || float.IsNaN(direction.z))
-        {
             return _lastvalidDirection;
-        }
 
         _lastvalidDirection = direction;
         return direction;
+        
     }
 
     private void CollisionWithTrigger(Collider other)
     {
         if(!other.CompareTag(_borderTag))
             return;
+        
         var playerPosition = _player.transform.position;
         playerPosition.x = _validPositionX * _player.Direction.x;
         //TODO: it's working with bug
@@ -124,6 +127,7 @@ public class PlayerControl : MonoBehaviour
         
         if (_moveRoutine != null)
             StopCoroutine(_moveRoutine);
+        
     }
 
 }

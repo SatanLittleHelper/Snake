@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 namespace DefaultNamespace
 {
     public class UIHandler : MonoBehaviour
-
     {
         [SerializeField] private TMP_Text _diamondCount;
         [SerializeField] private TMP_Text _humanCount;
@@ -17,25 +16,26 @@ namespace DefaultNamespace
         private Diamond.Diamond _diamond;
         private Barrier.Barrier _barrier;
 
-
         private void Awake()
         {
             _spawner = FindObjectOfType<HumanSpawner>();
+            
         }
 
         private void OnEnable()
         {
             _spawner.SpawnEnded += onSpawnEnded;
+            
         }
 
         private void OnDisable()
         {
             _spawner.SpawnEnded -= onSpawnEnded;
-
             _human.CountChanged -= OnHumanCountChanged;
             _diamond.CountChanged -= OnDiamondCountChanged;
             _barrier.GameOver -= OnGameOver;
             _human.GameOver -= OnGameOver;
+            
         }
 
         private void onSpawnEnded()
@@ -54,11 +54,13 @@ namespace DefaultNamespace
         private void OnHumanCountChanged(int count)
         {
             _humanCount.text = count.ToString();
+            
         }
 
         private void OnDiamondCountChanged(int count)
         {
             _diamondCount.text = count.ToString();
+            
         }
 
         private void OnGameOver()
@@ -71,6 +73,9 @@ namespace DefaultNamespace
         public void RestartGame()
         {
             SceneManager.LoadScene(sceneBuildIndex: 0);
+            
         }
+        
     }
+    
 }

@@ -5,7 +5,7 @@ namespace Barrier
     public class CollectablesSpawner : Spawner
     {
         [SerializeField] private Collectables[] _prefabs;
-        
+       
         private void OnEnable()
         {
             _roadSpawner.RoadSpawnEnded += StartSpawning;
@@ -27,11 +27,12 @@ namespace Barrier
 
                 foreach (var spawnPoint in _spawnPoints)
                 {
-                    var spawnPosition = new Vector3(spawnPoint.position.x, spawnPoint.position.y, roadPosition.z - 5f -  i * 5f);
-
                     var toSpawn = GetCollectableForSpawn(lastTimeSpawned);
+                    var boundsY = toSpawn.GetComponent<MeshRenderer>().bounds.size.y ;
+                    var spawnPosition = new Vector3(spawnPoint.position.x, spawnPoint.position.y * boundsY, roadPosition.z - 5f -  i * 5f);
+                    var obj = Instantiate(toSpawn, spawnPosition, Quaternion.Euler(new Vector3(-90f,0,0)));
+                    
                     lastTimeSpawned = toSpawn;
-                    var obj = Instantiate(toSpawn, spawnPosition, Quaternion.identity);
                     obj.transform.SetParent(road.transform);
                     
                 }
@@ -45,6 +46,7 @@ namespace Barrier
         private Collectables GetCollectableForSpawn(Collectables lastTimeSpawned)
         {
             var toSpawn = _prefabs[Random.Range(0, _prefabs.Length)];
+            
             if (lastTimeSpawned == toSpawn)
                 toSpawn = GetCollectableForSpawn(toSpawn);
 

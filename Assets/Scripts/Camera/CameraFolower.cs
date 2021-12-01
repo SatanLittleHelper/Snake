@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
     public class CameraFolower : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
@@ -10,6 +9,7 @@ using UnityEngine;
         private void Start()
         {
             _player = FindObjectOfType<Player>();
+            
         }
 
         private void LateUpdate()

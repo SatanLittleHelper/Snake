@@ -11,6 +11,9 @@ namespace DefaultNamespace.Player
         {
             if (other.TryGetComponent(out Eateble _))
                 eat?.Invoke(other);
+            
         }
+        
     }
+    
 }
