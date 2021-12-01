@@ -41,8 +41,6 @@ namespace Barrier
 
         }
 
-        
-
         private Collectables GetCollectableForSpawn(Collectables lastTimeSpawned)
         {
             var toSpawn = _prefabs[Random.Range(0, _prefabs.Length)];
