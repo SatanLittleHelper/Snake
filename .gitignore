@@ -9,15 +9,15 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-/Packages/
 .idea
+/[Pp]ackages/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-#[Aa]ssets/**/*.meta
+[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -49,12 +49,15 @@ ExportedObj/
 *.opendb
 *.VC.db
 .DS_Store
+*.icloud
+*.xml
+*.json
 
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-
+*.meta
 
 # Unity3D generated file on crash reports
 sysinfo.txt
