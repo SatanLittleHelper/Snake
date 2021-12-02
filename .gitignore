@@ -49,6 +49,7 @@ ExportedObj/
 *.VC.db
 *.icloud
 *.xml
+*.json
 
 # Unity3D generated meta files
 *.pidb.meta
