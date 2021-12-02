@@ -8,9 +8,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Player _player;
     private Coroutine _moveRoutine;
-    private Vector3 _lastvalidDirection = Vector3.one;
-    private String _borderTag = "Border";
-    private float _validPositionX = 3.7f;
+    private float _validPositionX = 3.9f;
     private Fever _fever;
     private bool _feverEnabled;
     
@@ -24,7 +22,6 @@ public class PlayerControl : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.CollisionWithTrigger += CollisionWithTrigger;
         _fever.FeverStarted += OnFever;
         _fever.FeverWillEndSoon += OnFeverWillEndSoon;
         
@@ -32,7 +29,6 @@ public class PlayerControl : MonoBehaviour
 
     private void OnDisable()
     {
-        _player.CollisionWithTrigger -= CollisionWithTrigger;
         _fever.FeverStarted -= OnFever;
         _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
 
@@ -57,11 +53,17 @@ public class PlayerControl : MonoBehaviour
     private void OnFever(bool arg0)
     {
         if (_moveRoutine != null)
+        {
             StopCoroutine(_moveRoutine);
+            _moveRoutine = null;
+            
+        }
         
-        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
         _feverEnabled = arg0;
-        
+        if (!_feverEnabled) return;
+
+        StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
+
     }
     
     private void Move(Vector3 position)
@@ -71,9 +73,13 @@ public class PlayerControl : MonoBehaviour
         var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
 
         if (ray.Length <= 0) return;
-       
+
         if (_moveRoutine != null)
+        {
             StopCoroutine(_moveRoutine);
+            _moveRoutine = null;
+            
+        }
             
         _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(ray[0].point));
 
@@ -82,13 +88,12 @@ public class PlayerControl : MonoBehaviour
     private IEnumerator ChangePlayerPositionRoutine(Vector3 target)
     {
         var currentPosition = _player.transform.position;
-        var targetPosition = new Vector3(target.x, currentPosition.y, currentPosition.z);
+        var targetPosition = GetValidTargetPosition(target);
+        targetPosition = new Vector3(targetPosition.x, currentPosition.y, currentPosition.z);
         
         if (_feverEnabled) 
             targetPosition = new Vector3(0f, currentPosition.y, currentPosition.z);
        
-        _player.Direction = GetDirrection(targetPosition, currentPosition);
-      
         while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
         {
             _player.transform.position =
@@ -100,34 +105,16 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private Vector3 GetDirrection(Vector3 targetPosition, Vector3 currentPosition)
+    private Vector3 GetValidTargetPosition(Vector3 targetPosition)
     {
-        var heading = targetPosition - currentPosition;
-        var distance = heading.magnitude;
-        var direction = heading / distance;
+        if (targetPosition.x > _validPositionX)
+            targetPosition.x = _validPositionX;
         
-        if (float.IsNaN(direction.x) || float.IsNaN(direction.y) || float.IsNaN(direction.z))
-            return _lastvalidDirection;
+        if (targetPosition.x < -_validPositionX)
+            targetPosition.x = -_validPositionX;
+        
+        return targetPosition;
 
-        _lastvalidDirection = direction;
-        return direction;
-        
-    }
-
-    private void CollisionWithTrigger(Collider other)
-    {
-        if(!other.CompareTag(_borderTag))
-            return;
-        
-        var playerPosition = _player.transform.position;
-        playerPosition.x = _validPositionX * _player.Direction.x;
-        //TODO: it's working with bug
-        //some times snake jumping to other edge, because i use *_player.Direction
-        _player.transform.position = playerPosition;
-        
-        if (_moveRoutine != null)
-            StopCoroutine(_moveRoutine);
-        
     }
 
 }
