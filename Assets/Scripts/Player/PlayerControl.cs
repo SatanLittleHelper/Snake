@@ -53,11 +53,18 @@ public class PlayerControl : MonoBehaviour
     private void OnFever(bool arg0)
     {
         if (_moveRoutine != null)
+        {
             StopCoroutine(_moveRoutine);
+            _moveRoutine = null;
+            
+        }
         
-        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
         _feverEnabled = arg0;
-        
+        if (!_feverEnabled) return;
+
+        StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
+
+
     }
     
     private void Move(Vector3 position)
@@ -67,9 +74,13 @@ public class PlayerControl : MonoBehaviour
         var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
 
         if (ray.Length <= 0) return;
-       
+
         if (_moveRoutine != null)
+        {
             StopCoroutine(_moveRoutine);
+            _moveRoutine = null;
+            
+        }
             
         _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(ray[0].point));
 
@@ -86,6 +97,8 @@ public class PlayerControl : MonoBehaviour
        
         while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
         {
+            Debug.Log(targetPosition);
+
             _player.transform.position =
                 Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Sensitivity * Time.deltaTime);
             PlayerMove?.Invoke();

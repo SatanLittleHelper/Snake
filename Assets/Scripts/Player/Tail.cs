@@ -20,19 +20,19 @@
 
         private void OnEnable()
         {
-            _control.PlayerMove += PlayerMoving;
-            _mover.Moving += PlayerMoving;
+            _control.PlayerMove += OnPlayerMoving;
+            _mover.Moving += OnPlayerMoving;
 
         } 
         
         private void OnDisable()
         {
-            _control.PlayerMove -= PlayerMoving;
-            _mover.Moving -= PlayerMoving;
+            _control.PlayerMove -= OnPlayerMoving;
+            _mover.Moving -= OnPlayerMoving;
             
         }
         
-        private void PlayerMoving()
+        private void OnPlayerMoving()
         {
             ChangeTailPosition();
             

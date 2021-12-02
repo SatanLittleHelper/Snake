@@ -858,6 +858,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1443897605, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622862283, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622862283, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
+      propertyPath: _feverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bb332a4f7600e4abcb339f04d31c8b44, type: 2}
     - target: {fileID: 7144960291431976644, guid: cfafcceaca93a4fefa922b766010e561, type: 3}
       propertyPath: m_Name
       value: Snake
