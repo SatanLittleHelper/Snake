@@ -10,9 +10,7 @@ using UnityEngine.Events;
         [SerializeField] private Material _feverMaterial;
         private Material _lastMaterial;
         private bool _feverEnable;
-        
         private Fever _fever;
-
 
         public float Sensitivity => _sensitivity;
         public float Speed => _speed;
@@ -29,12 +27,14 @@ using UnityEngine.Events;
         {
             _fever.FeverStarted += OnFever;
             _fever.FeverWillEndSoon += OnFeverWillEndSoon;
+            
         }
 
         private void OnDisable()
         {
             _fever.FeverStarted -= OnFever;
             _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
+            
         }
 
 
@@ -55,15 +55,17 @@ using UnityEngine.Events;
         private void OnFever(bool enable)
         {
             _feverEnable = enable;
+            
             if (!enable)
             {
                 GetComponent<MeshRenderer>().material = _lastMaterial;
                 return;
+                
             }
+            
             _speed *= 3;
             _sensitivity *= 3;
             GetComponent<MeshRenderer>().material = _feverMaterial;
-
 
         }
 

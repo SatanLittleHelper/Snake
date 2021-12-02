@@ -64,7 +64,6 @@ public class PlayerControl : MonoBehaviour
 
         StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
 
-
     }
     
     private void Move(Vector3 position)
