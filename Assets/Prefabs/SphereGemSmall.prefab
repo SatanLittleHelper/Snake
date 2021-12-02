@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010921973622}
-  m_Mesh: {fileID: -5053925668127403250, guid: 65d258ff661424a0d89752499aa89d4d, type: 3}
+  m_Mesh: {fileID: -5053925668127403250, guid: 74d23baf2a22043f5a46c3666cb68702, type: 3}
 --- !u!23 &23000013243000176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 170a76b68a6bf4b8e81daf2ceb0c775e, type: 2}
+  - {fileID: 2100000, guid: b206a9513da3c4df4b3ac9c1172b61e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5053925668127403250, guid: 65d258ff661424a0d89752499aa89d4d, type: 3}
+  m_Mesh: {fileID: -5053925668127403250, guid: 74d23baf2a22043f5a46c3666cb68702, type: 3}
 --- !u!114 &1418962947148833443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +123,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010921973622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b79654201c84ffcbdb5b518b2b6579f, type: 3}
+  m_Script: {fileID: 11500000, guid: ab39684f5519c4e11aad4dc90c41d54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
