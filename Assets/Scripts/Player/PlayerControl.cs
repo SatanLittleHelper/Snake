@@ -52,28 +52,15 @@ public class PlayerControl : MonoBehaviour
     
     private void OnFever(bool arg0)
     {
-        if (_moveRoutine != null)
-        {
-            StopCoroutine(_moveRoutine);
-            _moveRoutine = null;
-            
-        }
-        
         _feverEnabled = arg0;
         if (!_feverEnabled) return;
 
-        StartCoroutine(ChangePlayerPositionRoutine(Vector3.zero));
+        Move(Vector3.zero);
 
     }
     
     private void Move(Vector3 position)
     {
-        if (Camera.main is null) return;
-        
-        var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
-
-        if (ray.Length <= 0) return;
-
         if (_moveRoutine != null)
         {
             StopCoroutine(_moveRoutine);
@@ -81,23 +68,32 @@ public class PlayerControl : MonoBehaviour
             
         }
             
-        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(ray[0].point));
+        _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(GetTargetPosition(position)));
 
+    }
+
+    private Vector3 GetTargetPosition(Vector3 position)
+    {
+        var defaultPosition = _player.transform.position;
+        if (Camera.main is null) return defaultPosition;
+        
+        var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
+
+        return ray.Length == 0 ? defaultPosition : GetValidTargetPosition(ray[0].point);
     }
     
     private IEnumerator ChangePlayerPositionRoutine(Vector3 target)
     {
         var currentPosition = _player.transform.position;
-        var targetPosition = GetValidTargetPosition(target);
-        targetPosition = new Vector3(targetPosition.x, currentPosition.y, currentPosition.z);
+        target = new Vector3(target.x, currentPosition.y, currentPosition.z);
         
         if (_feverEnabled) 
-            targetPosition = new Vector3(0f, currentPosition.y, currentPosition.z);
+            target = new Vector3(0f, currentPosition.y, currentPosition.z);
        
-        while (Math.Abs(_player.transform.position.x - targetPosition.x) > 0)
+        while (Math.Abs(_player.transform.position.x - target.x) > 0)
         {
             _player.transform.position =
-                Vector3.MoveTowards(_player.transform.position, targetPosition, _player.Sensitivity * Time.deltaTime);
+                Vector3.MoveTowards(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
             PlayerMove?.Invoke();
             yield return null;
             

@@ -12,6 +12,7 @@ using UnityEngine.Events;
         private bool _feverEnable;
         private Fever _fever;
 
+        public bool FeverEnable => _feverEnable;
         public float Sensitivity => _sensitivity;
         public float Speed => _speed;
         public event UnityAction<Collider> CollisionWithTrigger;
@@ -64,7 +65,7 @@ using UnityEngine.Events;
             }
             
             _speed *= 3;
-            _sensitivity *= 3;
+            _sensitivity *= 2;
             GetComponent<MeshRenderer>().material = _feverMaterial;
 
         }
@@ -72,7 +73,7 @@ using UnityEngine.Events;
         private void OnFeverWillEndSoon()
         {
             _speed /= 3;
-            _sensitivity /= 3;
+            _sensitivity /= 2;
 
         }
         
