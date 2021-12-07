@@ -14,7 +14,7 @@ namespace Human
             if (!other.TryGetComponent(out Human _) ) return;
             
             if (other.GetComponent<MeshRenderer>().material.color ==
-                _player.GetComponent<MeshRenderer>().material.color || _feverEnable)
+                _player.GetComponent<MeshRenderer>().material.color || _player.FeverEnable)
             {
                 base.OnEat(other);
                 _count++;

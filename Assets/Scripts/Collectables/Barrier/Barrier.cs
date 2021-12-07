@@ -11,7 +11,7 @@ namespace Barrier
         {
             if (!other.TryGetComponent(out Barrier _)) return;
             
-            if (_feverEnable)
+            if (_player.FeverEnable)
                 other.gameObject.SetActive(false);
             
             else

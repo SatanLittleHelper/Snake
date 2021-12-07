@@ -79,12 +79,7 @@ public class PlayerControl : MonoBehaviour
         
         var ray = Physics.RaycastAll(Camera.main.ScreenPointToRay(position));
 
-        if (ray.Length == 0) return defaultPosition;
-        
-        var targetPosition = GetValidTargetPosition(ray[0].point);
-        
-        return targetPosition;
-        
+        return ray.Length == 0 ? defaultPosition : GetValidTargetPosition(ray[0].point);
     }
     
     private IEnumerator ChangePlayerPositionRoutine(Vector3 target)
