@@ -46,6 +46,7 @@ using UnityEngine.Events;
             if (other.TryGetComponent(out Checkpoint checkpoint))
             {
                 _lastMaterial = checkpoint.GetComponent<MeshRenderer>().material;
+                    
                 if (_feverEnable) return;
                 GetComponent<MeshRenderer>().material = _lastMaterial;
 

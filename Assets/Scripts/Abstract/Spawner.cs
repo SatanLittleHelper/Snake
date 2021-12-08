@@ -10,9 +10,9 @@
 
         protected void StartSpawning()
         {
-            foreach (var road in _roadSpawner.AllRoads)
+            for (int i = 1; i < _roadSpawner.AllRoads.Count; i++)
             {
-                SpawnTo(road);
+                SpawnTo(_roadSpawner.AllRoads[i]);
                 
             }
             SpawnEnded?.Invoke();
