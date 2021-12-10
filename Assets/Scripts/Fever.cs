@@ -35,7 +35,6 @@ namespace DefaultNamespace
             _spawner.SpawnEnded -= onSpawnEnded;
             _humanCounter.CountChanged -= OnHumanCountChanged;
             _diamondCounter.CountChanged -= OnDiamondCountChanged;
-            //TODO: need change counter
             
         }
 
