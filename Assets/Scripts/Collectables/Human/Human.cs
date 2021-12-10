@@ -5,8 +5,6 @@ namespace Human
 {
     public class Human : Eateble
     {
-        private int _count;
-        public event UnityAction<int> CountChanged;
         public event UnityAction GameOver;
         
         protected override void OnEat(Collider other)
@@ -17,8 +15,6 @@ namespace Human
                 _player.GetComponent<MeshRenderer>().material.color || _player.FeverEnable)
             {
                 base.OnEat(other);
-                _count++;
-                CountChanged?.Invoke(_count);
                 
             }
             else

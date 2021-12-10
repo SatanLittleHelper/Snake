@@ -52,17 +52,37 @@ using UnityEngine;
             
         }
 
-       
-
         private void OnNeedToSwap()
         {
             var road = _allRoads[0];
+            
+            if (road.name == "Road")
+            {
+                road.gameObject.SetActive(false);
+                _allRoads.RemoveAt(0);
+                return;
+                
+            }
+            
+            ResetAllCollectablesOnRoadElement(road);
             road.transform.position = new Vector3(road.transform.position.x,road.transform.position.y,
                 _allRoads[_allRoads.Count - 1].transform.position.z + road.Size.z);
             _allRoads.RemoveAt(0);
             _allRoads.Add(road);
             _roadSpawner.AllRoads = _allRoads;
-            
 
         }
+        
+        private void ResetAllCollectablesOnRoadElement(Road road)
+        {
+            var AllCollectables = road.GetComponentsInChildren<Collectables>(true);
+
+            foreach (var collectable in AllCollectables)
+            {
+                collectable.gameObject.SetActive(true);
+            
+            }
+            
+        }
+        
     }

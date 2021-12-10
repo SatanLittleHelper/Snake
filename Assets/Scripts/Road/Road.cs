@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,12 +21,14 @@ public class Road : MonoBehaviour
 
     private void Update()
     {
+        if (Camera.main is null) return;
         
         var pos  = Camera.main.ViewportToWorldPoint(Vector3.zero);
-        if (pos.z - transform.position.z > 50)
-        {
-            NeedToSwap?.Invoke();
-        }
+        
+        if (Math.Abs(pos.z - transform.position.z - 50) > 0.1f) return;
+        
+        NeedToSwap?.Invoke();
+        
     }
     
 }

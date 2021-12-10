@@ -5,12 +5,12 @@
         
         private void OnEnable()
         {
-            _mouth.eat += OnEat;
+            _mouth.Eat += OnEat;
             
         }
         private void OnDisable()
         {
-            _mouth.eat -= OnEat;
+            _mouth.Eat -= OnEat;
             
         }
 

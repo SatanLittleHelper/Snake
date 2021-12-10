@@ -1,4 +1,5 @@
 using System.Collections;
+using Diamond;
 using Human;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,8 +9,8 @@ namespace DefaultNamespace
     public class Fever : MonoBehaviour
     {
         [SerializeField] private int _countToStart;
-        private Human.Human _human;
-        private Diamond.Diamond _diamond;
+        private HumanCounter _humanCounter;
+        private DiamondCounter _diamondCounter;
         private HumanSpawner _spawner;
         private int _count;
         private bool _feverEnable;
@@ -32,18 +33,19 @@ namespace DefaultNamespace
         private void OnDisable()
         {
             _spawner.SpawnEnded -= onSpawnEnded;
-            _human.CountChanged -= OnHumanCountChanged;
-            _diamond.CountChanged -= OnDiamondCountChanged;
+            _humanCounter.CountChanged -= OnHumanCountChanged;
+            _diamondCounter.CountChanged -= OnDiamondCountChanged;
+            //TODO: need change counter
             
         }
 
         private void onSpawnEnded()
         {
-            _human = FindObjectOfType<Human.Human>();
-            _diamond = FindObjectOfType<Diamond.Diamond>();
+            _humanCounter = FindObjectOfType<HumanCounter>();
+            _diamondCounter = FindObjectOfType<DiamondCounter>();
             
-            _human.CountChanged += OnHumanCountChanged;
-            _diamond.CountChanged += OnDiamondCountChanged;
+            _humanCounter.CountChanged += OnHumanCountChanged;
+            _diamondCounter.CountChanged += OnDiamondCountChanged;
 
         }
 
