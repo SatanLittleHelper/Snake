@@ -8,9 +8,8 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Player _player;
     private Coroutine _moveRoutine;
-    private float _validPositionX = 3.9f;
+    private const float _validPositionX = 3.9f;
     private Fever _fever;
-    private bool _feverEnabled;
     
     public event UnityAction PlayerMove;
 
@@ -18,20 +17,6 @@ public class PlayerControl : MonoBehaviour
     {
         _fever = FindObjectOfType<Fever>();
         
-    }
-
-    private void OnEnable()
-    {
-        _fever.FeverStarted += OnFever;
-        _fever.FeverWillEndSoon += OnFeverWillEndSoon;
-        
-    }
-
-    private void OnDisable()
-    {
-        _fever.FeverStarted -= OnFever;
-        _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
-
     }
 
     private void Update()
@@ -42,21 +27,6 @@ public class PlayerControl : MonoBehaviour
             
         }
         
-    }
-    
-    private void OnFeverWillEndSoon()
-    {
-        _feverEnabled = false;
-        
-    }
-    
-    private void OnFever(bool arg0)
-    {
-        _feverEnabled = arg0;
-        if (!_feverEnabled) return;
-
-        Move(Vector3.zero);
-
     }
     
     private void Move(Vector3 position)
@@ -86,9 +56,6 @@ public class PlayerControl : MonoBehaviour
     {
         var currentPosition = _player.transform.position;
         target = new Vector3(target.x, currentPosition.y, currentPosition.z);
-        
-        if (_feverEnabled) 
-            target = new Vector3(0f, currentPosition.y, currentPosition.z);
        
         while (Math.Abs(_player.transform.position.x - target.x) > 0)
         {
