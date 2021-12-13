@@ -1,3 +1,4 @@
+using DefaultNamespace.Abstract;
 using Diamond;
 using Human;
 using TMPro;
@@ -6,53 +7,38 @@ using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
-    public class UIHandler : MonoBehaviour
+    public class UIHandler : Handler
     {
         [SerializeField] private TMP_Text _diamondCount;
         [SerializeField] private TMP_Text _humanCount;
         [SerializeField] private RectTransform _gameOverPanel;
 
-        private HumanSpawner _spawner;
-        private Human.Human _human;
         private HumanCounter _humanCounter;
         private DiamondCounter _diamondCounter;
-        private Barrier.Barrier _barrier;
-        
-        
+        private GameOverHandler _gameOverHandler;
 
-        private void Awake()
+
+        protected override void OnDisable()
         {
-            _spawner = FindObjectOfType<HumanSpawner>();
+            base.OnDisable();
             
-        }
-
-        private void OnEnable()
-        {
-            _spawner.SpawnEnded += onSpawnEnded;
-            
-        }
-
-        private void OnDisable()
-        {
-            _spawner.SpawnEnded -= onSpawnEnded;
             _humanCounter.CountChanged -= OnHumanCountChanged;
             _diamondCounter.CountChanged -= OnDiamondCountChanged;
-            _barrier.GameOver -= OnGameOver;
-            _human.GameOver -= OnGameOver;
-            
+            _gameOverHandler.GameOver -= OnGameOver;
+
         }
 
-        private void onSpawnEnded()
+        protected override void onSpawnEnded()
         {
-            _human = FindObjectOfType<Human.Human>();
-            _barrier = FindObjectOfType<Barrier.Barrier>();
+            base.onSpawnEnded();
+            
             _humanCounter = FindObjectOfType<HumanCounter>();
             _diamondCounter = FindObjectOfType<DiamondCounter>();
+            _gameOverHandler = FindObjectOfType<GameOverHandler>();
             
             _humanCounter.CountChanged += OnHumanCountChanged;
             _diamondCounter.CountChanged += OnDiamondCountChanged;
-            _barrier.GameOver += OnGameOver;
-            _human.GameOver += OnGameOver;
+            _gameOverHandler.GameOver += OnGameOver;
 
         }
 
