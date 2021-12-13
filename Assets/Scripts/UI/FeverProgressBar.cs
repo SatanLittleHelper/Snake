@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +7,6 @@ namespace DefaultNamespace
     {
         [SerializeField] private Image _progressBar;
         private Fever _fever;
-
 
         private void Awake()
         {
@@ -22,21 +20,22 @@ namespace DefaultNamespace
             
         }
 
-        
-
         private void OnDisable()
         {
             _fever.CountToFeverChanged -= OnCountToFeverChanged;
+            
         }
         
-        private void OnCountToFeverChanged(int toFever)
+        private void OnCountToFeverChanged(float toFever)
         {
             float progress = 0f;
             
-            if (toFever != 0) progress = (float)toFever / _fever.ToFeverStart;
+            if (toFever != 0) progress = toFever / _fever.ToFeverStart;
             
             _progressBar.fillAmount = progress;
             
         }
+        
     }
+    
 }

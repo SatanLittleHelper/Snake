@@ -17,7 +17,7 @@ namespace DefaultNamespace
 
         public event UnityAction<bool> FeverStarted;
         public event UnityAction FeverWillEndSoon;
-        public event UnityAction<int> CountToFeverChanged;
+        public event UnityAction<float> CountToFeverChanged;
 
         public int ToFeverStart => _countToStart;
 
@@ -53,6 +53,8 @@ namespace DefaultNamespace
 
         private void OnHumanCountChanged(int arg0)
         {
+            if (_feverEnable) return;
+            
             _count = 0;
             CountToFeverChanged?.Invoke(_count);
             
@@ -68,8 +70,7 @@ namespace DefaultNamespace
             if (_count != _countToStart) return;
             
             StartCoroutine(InFever());
-            _count = 0;
-            CountToFeverChanged?.Invoke(_count);
+            StartCoroutine(ChangeCountSmoothly());
 
         }
 
@@ -86,6 +87,22 @@ namespace DefaultNamespace
             
             FeverStarted?.Invoke(false);
             _feverEnable = false;
+
+        }
+
+        private IEnumerator ChangeCountSmoothly()
+        {
+            float count = _count;
+            
+            while (count > 0)
+            {
+                count -= Time.deltaTime;
+                CountToFeverChanged?.Invoke(count);
+
+                yield return null;
+                
+            }
+            _count = 0;
 
         }
         
