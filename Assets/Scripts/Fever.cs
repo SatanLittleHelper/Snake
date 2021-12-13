@@ -16,7 +16,10 @@ namespace DefaultNamespace
         private bool _feverEnable;
 
         public event UnityAction<bool> FeverStarted;
-        public event UnityAction FeverWillEndSoon; 
+        public event UnityAction FeverWillEndSoon;
+        public event UnityAction<int> CountToFeverChanged;
+
+        public int ToFeverStart => _countToStart;
 
         private void Awake()
         {
@@ -51,6 +54,7 @@ namespace DefaultNamespace
         private void OnHumanCountChanged(int arg0)
         {
             _count = 0;
+            CountToFeverChanged?.Invoke(_count);
             
         }
 
@@ -59,11 +63,13 @@ namespace DefaultNamespace
             if (_feverEnable) return;
             
             _count++;
-            
+            CountToFeverChanged?.Invoke(_count);
+
             if (_count != _countToStart) return;
             
             StartCoroutine(InFever());
             _count = 0;
+            CountToFeverChanged?.Invoke(_count);
 
         }
 
