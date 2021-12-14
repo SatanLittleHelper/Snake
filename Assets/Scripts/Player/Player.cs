@@ -39,19 +39,19 @@ using UnityEngine.Events;
         }
 
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             CollisionWithTrigger?.Invoke(other);
-            
-            if (other.TryGetComponent(out Checkpoint checkpoint))
-            {
-                _lastMaterial = checkpoint.GetComponent<MeshRenderer>().material;
-                    
-                if (_feverEnable) return;
-                GetComponent<MeshRenderer>().material = _lastMaterial;
 
-            }
+            if (!other.TryGetComponent(out Checkpoint checkpoint)) return;
             
+            _lastMaterial = checkpoint.GetComponent<MeshRenderer>().material;
+            _speed += 0.2f;
+
+            if (_feverEnable) return;
+            
+            GetComponent<MeshRenderer>().material = _lastMaterial;
+
         }
         
         private void OnFever(bool enable)
