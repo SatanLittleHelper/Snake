@@ -9,6 +9,7 @@ namespace DefaultNamespace
     public class Fever : MonoBehaviour
     {
         [SerializeField] private int _countToStart;
+        [SerializeField] private FeverPanel _feverPanel;
         private HumanCounter _humanCounter;
         private DiamondCounter _diamondCounter;
         private HumanSpawner _spawner;
@@ -76,8 +77,7 @@ namespace DefaultNamespace
 
         private IEnumerator InFever()
         {
-            FeverStarted?.Invoke(true);
-            _feverEnable = true;
+            ChangeFeverState(true);
 
             yield return new WaitForSeconds(4f);
             
@@ -85,9 +85,16 @@ namespace DefaultNamespace
             
             yield return new WaitForSeconds(1f);
             
-            FeverStarted?.Invoke(false);
-            _feverEnable = false;
+            ChangeFeverState(false);
 
+        }
+
+        private void ChangeFeverState(bool state)
+        {
+            FeverStarted?.Invoke(state);
+            _feverEnable = state;
+            _feverPanel.gameObject.SetActive(state);
+            
         }
 
         private IEnumerator ChangeCountSmoothly()

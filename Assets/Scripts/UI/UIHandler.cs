@@ -11,7 +11,7 @@ namespace DefaultNamespace
     {
         [SerializeField] private TMP_Text _diamondCount;
         [SerializeField] private TMP_Text _humanCount;
-        [SerializeField] private RectTransform _gameOverPanel;
+        [SerializeField] private GameOverPanel _gameOverPanel;
 
         private HumanCounter _humanCounter;
         private DiamondCounter _diamondCounter;
