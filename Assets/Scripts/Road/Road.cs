@@ -6,8 +6,6 @@ public class Road : MonoBehaviour
 {
     private Vector3 _size;
 
-    // public delegate Player NeedToSwap(Road element);
-
     public event UnityAction NeedToSwap; 
 
 
@@ -21,6 +19,8 @@ public class Road : MonoBehaviour
 
     private void Update()
     {
+        
+        //todo: work with bug
         if (Camera.main is null) return;
         
         var pos  = Camera.main.ViewportToWorldPoint(Vector3.zero);
