@@ -1,32 +1,37 @@
-using System;
+using DefaultNamespace.Road;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Road : MonoBehaviour
 {
-    private Vector3 _size;
+    private DestroyPoint _destroyPoint;
 
     public event UnityAction NeedToSwap; 
 
 
-    public Vector3 Size => _size;
+    public Vector3 Size { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        _size = GetComponent<MeshRenderer>().bounds.size;
+        Size = GetComponent<MeshRenderer>().bounds.size;
+        _destroyPoint = GetComponentInChildren<DestroyPoint>();
+
+    }
+
+    private void OnEnable()
+    {
+        _destroyPoint.DestroyPointReached += OnDestroyPointReached;
         
     }
 
-    private void Update()
+    private void OnDisable()
     {
+        _destroyPoint.DestroyPointReached -= OnDestroyPointReached;
         
-        //todo: work with bug
-        if (Camera.main is null) return;
-        
-        var pos  = Camera.main.ViewportToWorldPoint(Vector3.zero);
-        
-        if (Math.Abs(pos.z - transform.position.z - 50) > 0.1f) return;
-        
+    }
+
+    private void OnDestroyPointReached()
+    {
         NeedToSwap?.Invoke();
         
     }
