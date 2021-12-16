@@ -13,6 +13,7 @@ namespace Human
         {
             _mouth.EatHuman += OnEatHuman;
             _humanSpawner.SpawnEnded += OnSpawnEnded;
+            _score = 5;
 
         }
 

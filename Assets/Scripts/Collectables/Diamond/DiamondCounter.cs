@@ -9,6 +9,7 @@ namespace Diamond
         private void OnEnable()
         {
             _mouth.EatDiamond += OnEatDiamond;
+            _score = 10;
 
         }
 
