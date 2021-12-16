@@ -62,7 +62,6 @@ namespace DefaultNamespace
         private void LoadHighscore()
         {
            _highscore = PlayerPrefs.GetInt(_highscorePref, 0);
-           Debug.Log($"highscore - {_highscore}");
             
         }
 
