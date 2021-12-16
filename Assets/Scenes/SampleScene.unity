@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _countToStart: 5
-  _feverPanel: {fileID: 0}
+  _feverPanel: {fileID: 2080494752}
 --- !u!114 &278179036
 MonoBehaviour:
   m_ObjectHideFlags: 0
