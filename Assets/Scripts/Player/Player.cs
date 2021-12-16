@@ -27,14 +27,12 @@ using UnityEngine.Events;
         private void OnEnable()
         {
             _fever.FeverStarted += OnFever;
-            _fever.FeverWillEndSoon += OnFeverWillEndSoon;
             
         }
 
         private void OnDisable()
         {
             _fever.FeverStarted -= OnFever;
-            _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
             
         }
 
@@ -54,28 +52,36 @@ using UnityEngine.Events;
 
         }
         
-        private void OnFever(bool enable)
+        private void OnFever(bool state)
         {
-            _feverEnable = enable;
+            _feverEnable = state;
+            ChangeSpeed(state);
             
-            if (!enable)
+            if (!state)
             {
                 GetComponent<MeshRenderer>().material = _lastMaterial;
                 return;
                 
             }
             
-            _speed *= 3;
-            _sensitivity *= 2;
             GetComponent<MeshRenderer>().material = _feverMaterial;
 
         }
 
-        private void OnFeverWillEndSoon()
+        private void ChangeSpeed(bool state)
         {
-            _speed /= 3;
-            _sensitivity /= 2;
-
+            if (state)
+            {
+                _speed *= 3;
+                _sensitivity *= 2;
+                
+            }
+            else
+            {
+                _speed /= 3;
+                _sensitivity /= 2;
+            }
+            
         }
         
     }

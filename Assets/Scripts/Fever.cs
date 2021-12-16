@@ -17,7 +17,6 @@ namespace DefaultNamespace
         private bool _feverEnable;
 
         public event UnityAction<bool> FeverStarted;
-        public event UnityAction FeverWillEndSoon;
         public event UnityAction<float> CountToFeverChanged;
 
         public int ToFeverStart => _countToStart;
@@ -79,11 +78,7 @@ namespace DefaultNamespace
         {
             ChangeFeverState(true);
 
-            yield return new WaitForSeconds(4f);
-            
-            FeverWillEndSoon?.Invoke();
-            
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(5f);
             
             ChangeFeverState(false);
 
