@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _countToStart: 5
-  _feverPanel: {fileID: 2080494752}
+  _feverPanel: {fileID: 0}
 --- !u!114 &278179036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 675128364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f20f8d50dc884d6aab2608e3fc221f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5950df6e3b20d4043b818edae8faa24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _diamondCount: {fileID: 1797600467}
