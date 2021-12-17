@@ -16,6 +16,7 @@ using UnityEngine;
         {
             _camera = Camera.main;
             _fever = FindObjectOfType<Fever>();
+            
         }
 
         protected virtual void Update()
@@ -36,7 +37,6 @@ using UnityEngine;
                 _moveRoutine = null;
             
             }
-            
             _moveRoutine = StartCoroutine(ChangePlayerPositionRoutine(GetTargetPosition(position)));
 
         }

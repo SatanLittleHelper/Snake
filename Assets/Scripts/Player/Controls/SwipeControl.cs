@@ -16,18 +16,16 @@ public class SwipeControl : Control
     protected override Vector3 GetTargetPosition(Vector3 position)
     {
         var defaultPosition = _player.transform.position;
-        if (Camera.main is null) return defaultPosition;
-        
         var dir = GetDirection(GetPositionInGameBoard(position));
-        defaultPosition += dir;
-        defaultPosition = GetValidTargetPosition(defaultPosition);
-        return defaultPosition;
+        
+        return GetValidTargetPosition(defaultPosition + dir);
 
     }
 
     private Vector3 GetDirection(Vector3 target)
     {
         if (Math.Abs(_startMousePosition.x - target.x) < 0) return Vector3.zero;
+        
         return Math.Abs(_startMousePosition.x - target.x) > 0.2f ? 
             new Vector3((_startMousePosition.x - target.x) * Math.Abs(_startMousePosition.x - target.x) / 8  * -1, 0, 0) : Vector3.zero;
         
