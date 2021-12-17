@@ -5,7 +5,6 @@
     {
         [SerializeField] private TailElement[] _tailElements;
         [SerializeField] private Player _player;
-        [SerializeField] private PlayerControl _control;
         private Mover _mover;
         private List<Coroutine> _allMoveCoroutines;
         private float _yPosition;
@@ -20,14 +19,12 @@
 
         private void OnEnable()
         {
-            _control.PlayerMove += OnPlayerMoving;
             _mover.Moving += OnPlayerMoving;
 
         } 
         
         private void OnDisable()
         {
-            _control.PlayerMove -= OnPlayerMoving;
             _mover.Moving -= OnPlayerMoving;
             
         }
