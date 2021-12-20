@@ -1,4 +1,5 @@
 using DefaultNamespace.Abstract;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace DefaultNamespace
@@ -30,8 +31,8 @@ namespace DefaultNamespace
 
         private void OnGameOver()
         {
+            Time.timeScale = 0;
             GameOver?.Invoke();
-            Ads.instance.ShowAds();
 
         }
     }

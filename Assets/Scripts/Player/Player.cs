@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,9 +18,9 @@ using UnityEngine.Events;
         public float Speed => _speed;
         public event UnityAction<Collider> CollisionWithTrigger;
 
+
         private void Awake()
         {
-            Time.timeScale = 1;
             _fever = FindObjectOfType<Fever>();
             
         }

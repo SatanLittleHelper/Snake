@@ -56,13 +56,14 @@ namespace DefaultNamespace
 
         private void OnGameOver()
         {
-            Time.timeScale = 0;
             _gameOverPanel.gameObject.SetActive(true);
             
         }
 
         public void RestartGame()
         {
+            Ads.instance.ShowAds();
+
             SceneManager.LoadScene(sceneBuildIndex: 0);
             
         }
