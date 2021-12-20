@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 1
-  _probablyShowAds: 100
+  _probablyShowAds: 30
 --- !u!4 &58367235
 Transform:
   m_ObjectHideFlags: 0

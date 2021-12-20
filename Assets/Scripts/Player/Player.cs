@@ -1,4 +1,3 @@
-using System;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
@@ -73,13 +72,13 @@ using UnityEngine.Events;
         {
             if (state)
             {
-                _speed *= 3;
+                _speed *= 2;
                 _sensitivity *= 2;
                 
             }
             else
             {
-                _speed /= 3;
+                _speed /= 2;
                 _sensitivity /= 2;
             }
             
