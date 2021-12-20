@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 278179034}
   - component: {fileID: 278179035}
   - component: {fileID: 278179036}
+  - component: {fileID: 278179037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -574,6 +575,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0d208aff085384c57bb1072e4ed11b8a, type: 2}
   - {fileID: 2100000, guid: 170a76b68a6bf4b8e81daf2ceb0c775e, type: 2}
   - {fileID: 2100000, guid: a00c71f8f53bf4c23b9fcc2b884cafe9, type: 2}
+--- !u!114 &278179037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278179030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b07d2760033437a893af3a4a1224f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _testMode: 1
+  _probablyShowAds: 30
 --- !u!1 &388088491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1352,7 @@ PrefabInstance:
       objectReference: {fileID: 2073858885}
     - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: _speed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: _feverMaterial
