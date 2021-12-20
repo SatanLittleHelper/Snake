@@ -1761,9 +1761,17 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
+      propertyPath: _sensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: _feverMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e5989da60da6844488c27e5b70c50787, type: 2}
+    - target: {fileID: 2176164054732050817, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7144960291431976644, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -1922,6 +1930,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ed702f78f844e7a1818ccfb3f04f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1190652733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190652731}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824e1a769f2340eeb056f03908f975b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1310300799}
 --- !u!1 &1218337281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2018,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218337281}
   m_CullTransparentMesh: 1
+--- !u!114 &1310300799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
+  m_PrefabInstance: {fileID: 1071911192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41c685ee8ba461abbbcf4bc2774ea19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1361449198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 948197008, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
