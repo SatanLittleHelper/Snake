@@ -31,7 +31,8 @@ namespace DefaultNamespace
         private void OnGameOver()
         {
             GameOver?.Invoke();
-            
+            Ads.instance.ShowAds();
+
         }
     }
 }
