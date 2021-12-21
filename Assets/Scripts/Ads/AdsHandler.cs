@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -10,6 +9,7 @@ using UnityEngine.Advertisements;
         private void Awake()
         {
             instance = this;
+            
         }
 
         public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
@@ -34,4 +34,5 @@ using UnityEngine.Advertisements;
             Time.timeScale = 1;
             
         }
+        
     }
