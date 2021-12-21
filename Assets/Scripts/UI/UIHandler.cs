@@ -62,6 +62,7 @@ namespace DefaultNamespace
 
         public void RestartGame()
         {
+            Time.timeScale = 1;
             Ads.instance.ShowAds();
 
             SceneManager.LoadScene(sceneBuildIndex: 0);

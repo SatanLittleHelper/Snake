@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using Random = UnityEngine.Random;
 
-public class Ads : MonoBehaviour, IUnityAdsShowListener
+public class Ads : MonoBehaviour
     {
         [SerializeField] private bool _testMode = true;
         [SerializeField] private int _probablyShowAds = 30;
@@ -41,29 +41,8 @@ public class Ads : MonoBehaviour, IUnityAdsShowListener
             if (!Advertisement.isInitialized) return;
             
             if (Random.Range(0, 100) <= _probablyShowAds)
-                Advertisement.Show(_videoIOS, this);
+                Advertisement.Show(_videoIOS, AdsHandler.instance );
 
-        }
-
-        public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
-        {
-            
-        }
-
-        public void OnUnityAdsShowStart(string placementId)
-        {
-            
-        }
-
-        public void OnUnityAdsShowClick(string placementId)
-        {
-            
-        }
-
-        public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
-        {
-            Time.timeScale = 1;
-            
         }
         
     }
