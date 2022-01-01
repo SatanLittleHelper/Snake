@@ -1820,7 +1820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: _sensitivity
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1622862283, guid: ded2d8c872739459885feaf09b7bfc26, type: 3}
       propertyPath: _feverMaterial

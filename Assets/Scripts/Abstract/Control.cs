@@ -46,10 +46,11 @@ using UnityEngine;
             var currentPosition = _player.transform.position;
             target = new Vector3(target.x, currentPosition.y, currentPosition.z);
        
-            while (Math.Abs(_player.transform.position.x - target.x) > 0)
+            while (Math.Abs(_player.transform.position.x - target.x) > 0.1f)
             {
                 _player.transform.position =
                     Vector3.MoveTowards(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
+                
                 yield return null;
             
             }
@@ -74,7 +75,7 @@ using UnityEngine;
             return targetPosition;
 
         }
-
+        
         protected abstract Vector3 GetTargetPosition(Vector3 position);
 
     }
