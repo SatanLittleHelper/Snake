@@ -49,7 +49,9 @@ using UnityEngine;
             while (Math.Abs(_player.transform.position.x - target.x) > 0.1f)
             {
                 _player.transform.position =
-                    Vector3.MoveTowards(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
+                    Vector3.Lerp(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
+                currentPosition = _player.transform.position;
+                target.z = currentPosition.z;
                 
                 yield return null;
             
