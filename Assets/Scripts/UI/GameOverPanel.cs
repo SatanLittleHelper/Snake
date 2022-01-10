@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -29,6 +30,14 @@ namespace DefaultNamespace
             _newHighscore.gameObject.SetActive(true);
 
 
+        }
+        public void RestartGame()
+        {
+            Time.timeScale = 1;
+            Ads.instance.ShowAds();
+
+            SceneManager.LoadScene(sceneBuildIndex: 1);
+            
         }
         
     }

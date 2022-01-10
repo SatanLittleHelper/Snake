@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 224199596}
   - component: {fileID: 224199598}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1185,8 +1185,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 675128369}
-        m_TargetAssemblyTypeName: DefaultNamespace.UIHandler, Assembly-CSharp
+      - m_Target: {fileID: 224199598}
+        m_TargetAssemblyTypeName: DefaultNamespace.GameOverPanel, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:

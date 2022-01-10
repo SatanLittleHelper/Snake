@@ -3,7 +3,6 @@ using Diamond;
 using Human;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -57,15 +56,6 @@ namespace DefaultNamespace
         private void OnGameOver()
         {
             _gameOverPanel.gameObject.SetActive(true);
-            
-        }
-
-        public void RestartGame()
-        {
-            Time.timeScale = 1;
-            Ads.instance.ShowAds();
-
-            SceneManager.LoadScene(sceneBuildIndex: 0);
             
         }
         
