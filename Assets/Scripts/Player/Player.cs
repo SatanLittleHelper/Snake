@@ -1,6 +1,6 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshRenderer))]
     public class Player : MonoBehaviour
@@ -15,7 +15,7 @@ using UnityEngine.Events;
         public bool FeverEnable => _feverEnable;
         public float Sensitivity => _sensitivity;
         public float Speed => _speed;
-        public event UnityAction<Collider> CollisionWithTrigger;
+        public event Action<Collider> CollisionWithTrigger;
 
 
         private void Awake()
@@ -80,6 +80,7 @@ using UnityEngine.Events;
             {
                 _speed /= 2;
                 _sensitivity /= 2;
+                
             }
             
         }

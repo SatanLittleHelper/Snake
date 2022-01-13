@@ -1,6 +1,6 @@
+using System;
 using DefaultNamespace.Abstract;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace DefaultNamespace
 {
@@ -8,7 +8,7 @@ namespace DefaultNamespace
     {
         private Barrier.Barrier _barrier;
 
-        public event UnityAction GameOver;
+        public event Action GameOver;
 
         protected override void onSpawnEnded()
         {
