@@ -1,8 +1,10 @@
     using DefaultNamespace;
     using UnityEngine;
+    using UnityEngine.Audio;
 
     public class MainTheme : MonoBehaviour
     {
+        [SerializeField] private AudioMixer _audioMixer;
         private AudioSource _mainTheme;
         private Fever _fever;
         private GameOverHandler _gameOverHandler;
@@ -13,6 +15,9 @@
             _mainTheme = GetComponent<AudioSource>();
             _fever = FindObjectOfType<Fever>();
             _gameOverHandler = FindObjectOfType<GameOverHandler>();
+            // вангую баг в будущем
+            var snapshot = _audioMixer.FindSnapshot("Play");
+            snapshot.TransitionTo(0f);
 
         }
 
@@ -40,8 +45,9 @@
 
         private void OnGameOver()
         {
-            _mainTheme.Stop();
-            
+            var snapshot = _audioMixer.FindSnapshot("GameOver");
+            snapshot.TransitionTo(0f);
+
         }
         
     }
