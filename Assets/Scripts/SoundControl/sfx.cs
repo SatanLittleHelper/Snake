@@ -22,6 +22,7 @@ using UnityEngine.Audio;
             _mouth.Eat += OnEat;
 
         }
+        
         private void OnDisable()
         {
             _mouth.Eat -= OnEat;
@@ -32,5 +33,7 @@ using UnityEngine.Audio;
         {
             _sfx.clip = other.GetComponent<AudioSource>().clip;
             _sfx.Play();
+            
         }
+        
     }
