@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
-    public abstract class Control : MonoBehaviour
+public abstract class Control : MonoBehaviour
     {
         [SerializeField] protected Player _player;
         private Coroutine _moveRoutine;
@@ -62,6 +63,9 @@ using UnityEngine;
         protected Vector3 GetPositionInGameBoard(Vector3 mousePosition)
         {
             var ray = Physics.RaycastAll(_camera.ScreenPointToRay(mousePosition));
+            if (EventSystem.current.IsPointerOverGameObject())
+                return Vector3.zero;
+
             return ray.Length == 0 ? Vector3.zero : ray[0].point;
 
         }

@@ -7,7 +7,7 @@ namespace Human
     {
         public event UnityAction GameOver;
 
-        private protected override void OnEat(Collider other)
+        protected override void OnEat(Collider other)
         {
             if (!other.TryGetComponent(out Human _) ) return;
             

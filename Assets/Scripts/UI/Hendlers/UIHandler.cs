@@ -11,6 +11,8 @@ namespace DefaultNamespace
         [SerializeField] private TMP_Text _diamondCount;
         [SerializeField] private TMP_Text _humanCount;
         [SerializeField] private GameOverPanel _gameOverPanel;
+        [SerializeField] private PausePanel _pausePanel;
+        
 
         private HumanCounter _humanCounter;
         private DiamondCounter _diamondCounter;
@@ -56,6 +58,12 @@ namespace DefaultNamespace
         private void OnGameOver()
         {
             _gameOverPanel.gameObject.SetActive(true);
+            
+        }
+
+        public void PauseButtonPressed()
+        {
+            _pausePanel.gameObject.SetActive(true);
             
         }
         

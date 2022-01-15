@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,31 +5,14 @@ namespace DefaultNamespace
 {
     public class GameOverPanel : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _curentScoreText;
-        [SerializeField] private TMP_Text _highscoreText;
-        [SerializeField] private TMP_Text _newHighscore;
-        
-        private HighScore _highScore;
+        private HighscorePanel _highscorePanel;
 
         private void Awake()
-        { 
-            _highScore = FindObjectOfType<HighScore>();
-            ShowHighscorePanel();
-
-        }
-
-        private void ShowHighscorePanel()
         {
-            _curentScoreText.text += _highScore.CurentScore.ToString();
-            _highscoreText.text += _highScore.Highscore.ToString();
-
-            if (!_highScore.HighscoreReached) return;
-            
-            _highscoreText.gameObject.SetActive(false);
-            _newHighscore.gameObject.SetActive(true);
-
-
+            _highscorePanel = FindObjectOfType<HighscorePanel>(true);
+            _highscorePanel.gameObject.SetActive(true);
         }
+        
         public void RestartGame()
         {
             Time.timeScale = 1;
