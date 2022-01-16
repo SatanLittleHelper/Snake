@@ -694,7 +694,6 @@ GameObject:
   - component: {fileID: 1120111597423066475}
   - component: {fileID: 6652688951487049145}
   - component: {fileID: 1622862283}
-  - component: {fileID: 2496657732764008137}
   m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
@@ -794,19 +793,6 @@ MonoBehaviour:
   _sensitivity: 8
   _speed: 10
   _feverMaterial: {fileID: 2100000, guid: e5989da60da6844488c27e5b70c50787, type: 2}
---- !u!114 &2496657732764008137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4356581299285748362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 458acbe4adfc8489a8ea0b700d2d2984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1622862283}
 --- !u!1 &4463167527287541703
 GameObject:
   m_ObjectHideFlags: 0

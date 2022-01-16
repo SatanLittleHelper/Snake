@@ -418,7 +418,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 58367233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b07d2760033437a893af3a4a1224f8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8910127fb2ab041d6b4471b767410fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _testMode: 1
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 58367233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c3d5e5b51b4a26a55f8441b32b50d6, type: 3}
+  m_Script: {fileID: 11500000, guid: b6c165ff4bda5445f8f82fe89fccdbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &121117362
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 121117362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d5c2536dab4108954b2def23d2a90d, type: 3}
+  m_Script: {fileID: 11500000, guid: a21026d73315943829f8a64c10922425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 753714277}
@@ -714,9 +714,9 @@ GameObject:
   - component: {fileID: 224199595}
   - component: {fileID: 224199597}
   - component: {fileID: 224199596}
-  - component: {fileID: 224199598}
   - component: {fileID: 224199599}
-  - component: {fileID: 224199600}
+  - component: {fileID: 224199602}
+  - component: {fileID: 224199601}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -783,18 +783,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224199594}
   m_CullTransparentMesh: 1
---- !u!114 &224199598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224199594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86c7eedf3554cecb78930675522bc9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &224199599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -804,8 +792,8 @@ AudioSource:
   m_GameObject: {fileID: 224199594}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8302176561133829445, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9f421d021f74e4cd1800b295c8336ef1, type: 3}
+  OutputAudioMixerGroup: {fileID: -8302176561133829445, guid: db158bcc7e38642bc801e8d04fac53db, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 373266fc015c14afa9df7887eef715a1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -891,7 +879,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &224199600
+--- !u!114 &224199601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -900,10 +888,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 224199594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8718837048ee473a817b4305f837c27a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b0dca8460c564829b4ee62d65b08329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
+  _audioMixer: {fileID: 24100000, guid: db158bcc7e38642bc801e8d04fac53db, type: 2}
+--- !u!114 &224199602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224199594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ba0ec9eeb72492cbf29c9e667201a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276631373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 360600099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e911e43f779249c1b477f22583793cda, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f74c2d9e392a4d80b9a12085e4fa5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &360600101
@@ -1330,9 +1330,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360600099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e058794dd104230b27f38590ad9ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &360600103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360600099}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824e1a769f2340eeb056f03908f975b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 08f61e0e7702a496193da29743af4e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &388088491
@@ -1469,7 +1481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 224199598}
+      - m_Target: {fileID: 224199602}
         m_TargetAssemblyTypeName: DefaultNamespace.GameOverPanel, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -1501,7 +1513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d78f0fc333eb4eb69b0c0a2788e5f33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f72496fba76b4401a462adfa14a901f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1713,7 +1725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ef0db6ced03f42c2adf0998a8fc1da0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8a6ffbba46574d37ba26ec5d2aaccae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1846,7 +1858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1107397e37e3841789571d0b69ee9ff0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f46e184b0dc14ad7853e6b8ecd0a162, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1979,7 +1991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 83c22e4fb39664e0da96cb8b05d25809, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c63a3ae01b1264248beb46c08c47be89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2002,6 +2014,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1365229245925530096, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
   m_PrefabInstance: {fileID: 3293884220147824757}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &592478026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592478025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab8988c527944729a528a1a9bcd0fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &592478029
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2032,9 +2056,9 @@ GameObject:
   - component: {fileID: 675128365}
   - component: {fileID: 675128369}
   - component: {fileID: 675128372}
-  - component: {fileID: 675128371}
+  - component: {fileID: 675128375}
+  - component: {fileID: 675128374}
   - component: {fileID: 675128370}
-  - component: {fileID: 675128373}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2054,7 +2078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
+  m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -2099,7 +2123,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2142,7 +2166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _diamondCount: {fileID: 1797600467}
   _humanCount: {fileID: 2232986}
-  _gameOverPanel: {fileID: 224199598}
+  _gameOverPanel: {fileID: 224199602}
   _pausePanel: {fileID: 121117366}
 --- !u!114 &675128370
 MonoBehaviour:
@@ -2153,19 +2177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 675128364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976f72b78af24733a2a9d32a7713441a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &675128371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675128364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94562800e234430d8681192264e1c22e, type: 3}
+  m_Script: {fileID: 11500000, guid: 946161ed14ee240b389e6a5ce3570b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &675128372
@@ -2177,10 +2189,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 675128364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d8986606aa6422da8069de0ef296acd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3651c37e3836d48ba9f1e1546a064065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &675128373
+--- !u!114 &675128374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2189,7 +2201,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 675128364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d177f066d3ee454c9ce5842300790cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d942fc8eb458436e88727b6bc8b0c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &675128375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675128364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f75724f3bdd4e198c866f2c1fb3618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &710247257
@@ -2301,7 +2325,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4886317766038834550, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5b5d495bb805141d48c9d7b536e2082f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 21dfd237588444a528e476dcf4bb0c99, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2410,10 +2434,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 753714276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5660b6287845d2bd3c4e44a821b353, type: 3}
+  m_Script: {fileID: 11500000, guid: d7a26bc1d5abd4783abaad08c24958c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
+  _audioMixer: {fileID: 24100000, guid: db158bcc7e38642bc801e8d04fac53db, type: 2}
 --- !u!114 &753714280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,10 +2447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 753714276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ecb592b49248089d753b99b859e8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: d863e0421965f4499ae350ea77855829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
+  _audioMixer: {fileID: 24100000, guid: db158bcc7e38642bc801e8d04fac53db, type: 2}
 --- !u!114 &753714281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,10 +2460,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 753714276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6036c3ea66e64798b9ad28dc8ae17d2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 28bac392766ae4c51b2eccc12ba04b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 9a7b46426f6844c63ae7681fc2f5e97f, type: 2}
+  _audioMixer: {fileID: 24100000, guid: db158bcc7e38642bc801e8d04fac53db, type: 2}
 --- !u!1 &835253194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,7 +2579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33523cd39de6b4be2bfde8e8e687c591, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5e437e03edef4d82990e2fbcd6edc72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2630,7 +2654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4984e90d014d494789d4684d556dff4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 506fd6d25a6f141a583ee7df36458324, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2763,7 +2787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d0fef5ad9bd40b0ac81e0c5a1d4464, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fa0b5908b49e482e9928585359c3d63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3003,7 +3027,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 956669178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35369707c5304546b0cc7fea88ae1e89, type: 3}
+  m_Script: {fileID: 11500000, guid: 646f77a977b4947a4bb09404c9447889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _curentScoreText: {fileID: 276631375}
@@ -3325,10 +3349,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1092095609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e5d0444c564d2aab2f46da9592fdf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 35c467d928d8344a6ba5ba606b75d7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 1092095611}
+  _progressBar: {fileID: 1934958228}
 --- !u!1 &1218337281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,7 +3410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae4adb119e7e84ed8a6cecc43a98413a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f150ca79cc2c449995d7e0565850d5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3598,7 +3622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 826b0d2030fe54cef97fe5fcfb65f007, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e696658f6be242ff8b004d440dc55cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3626,7 +3650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1500851667}
   - component: {fileID: 1500851666}
-  - component: {fileID: 1500851668}
+  - component: {fileID: 1500851669}
   m_Layer: 0
   m_Name: RoadSpawner
   m_TagString: Untagged
@@ -3663,7 +3687,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500851668
+--- !u!114 &1500851669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3672,7 +3696,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1500851665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c1126fa9664ce0b025b6ef567d87ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 135c1967bed444e36a6047785e5c63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1518302825
@@ -3855,7 +3879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722259577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389c5f3ffe324a05bec556e640106e45, type: 3}
+  m_Script: {fileID: 11500000, guid: 69ff4a5b6b3654b9fb9df36cbe564a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1745557203
@@ -4184,7 +4208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 537904187b7cb41b2a11bcdead276974, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 123c9e32323344467a172766641603fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4491,13 +4515,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868883423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c0889f18164364b7b6e82ef31f3a05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fbb1960dc5514843a8921b8aa2ded68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 753714277}
   _pausePanel: {fileID: 121117366}
-  _sound_on: {fileID: 21300000, guid: 7ef0db6ced03f42c2adf0998a8fc1da0, type: 3}
-  _sound_off: {fileID: 21300000, guid: 799c38eda487841d4af5fd1cb78b5099, type: 3}
+  _sound_on: {fileID: 21300000, guid: e8a6ffbba46574d37ba26ec5d2aaccae, type: 3}
+  _sound_off: {fileID: 21300000, guid: de7baf420a7f94579bb552181a7446ac, type: 3}
   _soundButton: {fileID: 560312598}
 --- !u!1 &1934958225
 GameObject:
@@ -4546,10 +4570,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1934958225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e5d0444c564d2aab2f46da9592fdf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 35c467d928d8344a6ba5ba606b75d7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 1934958228}
+  _progressBar: {fileID: 1092095611}
 --- !u!114 &1934958228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4570,7 +4594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3e0e110a2182547f9972ebb12e890d2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f382ec1ec58a747c98e1c48a540f860d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4671,7 +4695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 224199598}
+      - m_Target: {fileID: 224199602}
         m_TargetAssemblyTypeName: DefaultNamespace.GameOverPanel, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -4703,7 +4727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d78f0fc333eb4eb69b0c0a2788e5f33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f72496fba76b4401a462adfa14a901f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4991,7 +5015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a849aa36e600484d81c4bf1bf6236d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2c1dffaa742d43848d95b05a4673acb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5094,7 +5118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2080494748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca24d10bd744df0b553b616106de614, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a06cec40dbc54bcdbb1a3b064d80acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3293884220147824757
@@ -5152,7 +5176,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7437374342420919794, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f4118aeabebde404b9fa0fbf1bd9d18d, type: 3}
 --- !u!114 &3293884220147824758 stripped
 MonoBehaviour:
