@@ -10,10 +10,12 @@ public class SettingsPanel : PanelsHelper
         [SerializeField] private Button _soundButton;
         private bool _soundState;
         private SoundSettings _soundSettings;
+        private ControlSettings _controlSettings;
 
         private void Awake()
         {
             _soundSettings = FindObjectOfType<SoundSettings>();
+            _controlSettings = FindObjectOfType<ControlSettings>();
             _soundState = _soundSettings.LoadSettings();
             ChangeIcon();
             
@@ -31,6 +33,12 @@ public class SettingsPanel : PanelsHelper
             _soundState = _soundSettings.ChangeSoundState();
             ChangeIcon();
 
+        }
+
+        public void ControlButtonPressed()
+        {
+            _controlSettings.Change();
+            
         }
 
         private void ChangeIcon()

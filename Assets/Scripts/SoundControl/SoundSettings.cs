@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-
 public class SoundSettings : MonoBehaviour
     {
         [SerializeField] private AudioMixer _audioMixer;

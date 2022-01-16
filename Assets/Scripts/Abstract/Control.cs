@@ -2,12 +2,10 @@ using System;
 using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 
 public abstract class Control : MonoBehaviour
     {
-        [SerializeField] protected Player _player;
+        protected Player _player;
         private Coroutine _moveRoutine;
         private const float _validPositionX = 3.9f;
         private Fever _fever;
@@ -17,7 +15,8 @@ public abstract class Control : MonoBehaviour
         {
             _camera = Camera.main;
             _fever = FindObjectOfType<Fever>();
-            
+            _player = FindObjectOfType<Player>();
+
         }
 
         protected virtual void Update()
@@ -63,9 +62,7 @@ public abstract class Control : MonoBehaviour
         protected Vector3 GetPositionInGameBoard(Vector3 mousePosition)
         {
             var ray = Physics.RaycastAll(_camera.ScreenPointToRay(mousePosition));
-            if (EventSystem.current.IsPointerOverGameObject())
-                return Vector3.zero;
-
+            
             return ray.Length == 0 ? Vector3.zero : ray[0].point;
 
         }
