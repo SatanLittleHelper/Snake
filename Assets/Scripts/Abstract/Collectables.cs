@@ -6,7 +6,7 @@ public abstract class Collectables : MonoBehaviour
         protected Player _player;
         protected Mouth _mouth;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _player = FindObjectOfType<Player>();
             _mouth = FindObjectOfType<Mouth>();

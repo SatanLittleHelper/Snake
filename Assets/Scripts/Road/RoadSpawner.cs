@@ -9,7 +9,12 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private Road _roadPrefab;
     private List<Road> _allRoadElements;
     private Colors _colors;
-    public List<Road> AllRoads => _allRoadElements;
+    public List<Road> AllRoads
+    {
+        get => _allRoadElements;
+        set => _allRoadElements = value;
+    }
+
     public event UnityAction RoadSpawnEnded;
 
     private void Awake()
@@ -21,6 +26,7 @@ public class RoadSpawner : MonoBehaviour
     private void Start()
     {
         _allRoadElements = new List<Road>();
+        _allRoadElements.Add(FindObjectOfType<Road>());
         SpawnAllRoadsElement(_roadFragmentCount);
         
     }

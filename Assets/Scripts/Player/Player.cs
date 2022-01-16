@@ -1,6 +1,6 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshRenderer))]
     public class Player : MonoBehaviour
@@ -15,11 +15,11 @@ using UnityEngine.Events;
         public bool FeverEnable => _feverEnable;
         public float Sensitivity => _sensitivity;
         public float Speed => _speed;
-        public event UnityAction<Collider> CollisionWithTrigger;
+        public event Action<Collider> CollisionWithTrigger;
+
 
         private void Awake()
         {
-            Time.timeScale = 1;
             _fever = FindObjectOfType<Fever>();
             
         }
@@ -27,54 +27,62 @@ using UnityEngine.Events;
         private void OnEnable()
         {
             _fever.FeverStarted += OnFever;
-            _fever.FeverWillEndSoon += OnFeverWillEndSoon;
             
         }
 
         private void OnDisable()
         {
             _fever.FeverStarted -= OnFever;
-            _fever.FeverWillEndSoon -= OnFeverWillEndSoon;
             
         }
 
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             CollisionWithTrigger?.Invoke(other);
-            
-            if (other.TryGetComponent(out Checkpoint checkpoint))
-            {
-                _lastMaterial = checkpoint.GetComponent<MeshRenderer>().material;
-                if (_feverEnable) return;
-                GetComponent<MeshRenderer>().material = _lastMaterial;
 
-            }
+            if (!other.TryGetComponent(out Checkpoint checkpoint)) return;
             
+            _lastMaterial = checkpoint.GetComponent<MeshRenderer>().material;
+            _speed += 0.2f;
+
+            if (_feverEnable) return;
+            
+            GetComponent<MeshRenderer>().material = _lastMaterial;
+
         }
         
-        private void OnFever(bool enable)
+        private void OnFever(bool state)
         {
-            _feverEnable = enable;
+            _feverEnable = state;
+            ChangeSpeed(state);
             
-            if (!enable)
+            if (!state)
             {
                 GetComponent<MeshRenderer>().material = _lastMaterial;
                 return;
                 
             }
             
-            _speed *= 3;
-            _sensitivity *= 2;
             GetComponent<MeshRenderer>().material = _feverMaterial;
 
         }
 
-        private void OnFeverWillEndSoon()
+        private void ChangeSpeed(bool state)
         {
-            _speed /= 3;
-            _sensitivity /= 2;
-
+            if (state)
+            {
+                _speed *= 2;
+                _sensitivity *= 2;
+                
+            }
+            else
+            {
+                _speed /= 2;
+                _sensitivity /= 2;
+                
+            }
+            
         }
         
     }

@@ -1,16 +1,17 @@
     using UnityEngine;
-
+    
+    [RequireComponent(typeof(AudioSource))]
     public abstract class Eateble : Collectables
     {
-        
+
         private void OnEnable()
         {
-            _mouth.eat += OnEat;
-            
+            _mouth.Eat += OnEat;
+
         }
         private void OnDisable()
         {
-            _mouth.eat -= OnEat;
+            _mouth.Eat -= OnEat;
             
         }
 
@@ -18,7 +19,7 @@
         {
             if (!other.TryGetComponent(out Eateble eat)) return;
             eat.gameObject.SetActive(false);
-           
+            
         }
 
     }
