@@ -8,7 +8,7 @@ public class SoundSettings : MonoBehaviour
 
         private void Awake()
         {
-           _soundState = LoadSettings();
+            _soundState = LoadSettings();
            ApplyUserSettings();
 
         }

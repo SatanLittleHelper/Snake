@@ -19,7 +19,6 @@ using UnityEngine.Advertisements;
 
         public void OnUnityAdsShowStart(string placementId)
         {
-            Debug.Log("start");
             Time.timeScale = 0;
             
         }
