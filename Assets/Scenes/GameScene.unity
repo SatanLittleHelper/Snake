@@ -3670,7 +3670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9376b20c8eea94ddbb6f9b44a6901bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roadFragmentCount: 3
+  _roadFragmentCount: 10
   _roadPrefab: {fileID: 3293884220147824758}
 --- !u!4 &1500851667
 Transform:
