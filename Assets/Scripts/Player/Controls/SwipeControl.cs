@@ -17,12 +17,10 @@ public class SwipeControl : Control
     {
         var defaultPosition = _player.transform.position;
         var postionInGameBoard = GetPositionInGameBoard(position);
-            
         var dir = GetDirection(postionInGameBoard);
         var sensitivity = GetSensitivity(postionInGameBoard);
-        Debug.Log(defaultPosition + dir * sensitivity);
         
-        return GetValidTargetPosition(defaultPosition + dir * sensitivity) ;
+        return GetValidTargetPosition(defaultPosition + dir * sensitivity);
 
     }
 
