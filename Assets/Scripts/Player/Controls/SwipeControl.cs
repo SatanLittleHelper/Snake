@@ -17,6 +17,7 @@ public class SwipeControl : Control
     {
         var defaultPosition = _player.transform.position;
         var dir = GetDirection(GetPositionInGameBoard(position));
+        Debug.Log(dir);
         
         return GetValidTargetPosition(defaultPosition + dir);
 
@@ -24,10 +25,8 @@ public class SwipeControl : Control
 
     private Vector3 GetDirection(Vector3 target)
     {
-        if (Math.Abs(_startMousePosition.x - target.x) < 0) return Vector3.zero;
-        
-        return Math.Abs(_startMousePosition.x - target.x) > 0.2f ? 
-            new Vector3((_startMousePosition.x - target.x) * Math.Abs(_startMousePosition.x - target.x) / 8  * -1, 0, 0) : Vector3.zero;
+        return Math.Abs(_startMousePosition.x - target.x) > 0.1f ? 
+            new Vector3((_startMousePosition.x - target.x) * Math.Abs(_startMousePosition.x - target.x) / 4 * -1, 0, 0) : Vector3.zero;
         
     }
 

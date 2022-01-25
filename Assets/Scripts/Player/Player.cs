@@ -73,13 +73,11 @@ using UnityEngine;
             if (state)
             {
                 _speed *= 2;
-                _sensitivity *= 2;
                 
             }
             else
             {
                 _speed /= 2;
-                _sensitivity /= 2;
                 
             }
             
