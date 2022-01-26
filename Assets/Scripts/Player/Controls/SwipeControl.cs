@@ -35,7 +35,7 @@ public class SwipeControl : Control
 
     private float GetSensitivity(Vector3 target)
     {
-        return Math.Abs(_startMousePosition.x - target.x) > 1f ? 1f : Math.Abs(_startMousePosition.x - target.x) / 2 ;
+        return Math.Abs(_startMousePosition.x - target.x) > 1f ? 1f : Math.Abs(_startMousePosition.x - target.x) / 2f;
         
     }
 
