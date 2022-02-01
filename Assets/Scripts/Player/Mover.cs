@@ -49,7 +49,7 @@
         
         private void Move(Player obj, Vector3 target)
         {
-            obj.transform.position = Vector3.Lerp(obj.transform.position, target, _player.Speed * Time.deltaTime);
+            obj.transform.position = Vector3.MoveTowards(obj.transform.position, target, _player.Speed * Time.deltaTime);
 
         }
 

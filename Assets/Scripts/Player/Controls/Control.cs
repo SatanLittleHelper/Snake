@@ -52,7 +52,7 @@ public abstract class Control : MonoBehaviour
             {
                 Moving?.Invoke();
                 _player.transform.position =
-                    Vector3.Lerp(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
+                    Vector3.MoveTowards(_player.transform.position, target, _player.Sensitivity * Time.deltaTime);
                 currentPosition = _player.transform.position;
                 target.z = currentPosition.z;
                 
