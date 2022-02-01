@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8910127fb2ab041d6b4471b767410fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
+  _testMode: 0
   _probablyShowAds: 30
 --- !u!4 &58367235
 Transform:
