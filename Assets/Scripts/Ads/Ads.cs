@@ -32,11 +32,11 @@ public class Ads : MonoBehaviour
         {
             instance = this;
             CheckOS();
+            
         }
 
         private void Start()
         {
-            
             Advertisement.Initialize(_gameID, _testMode);
             
         }
