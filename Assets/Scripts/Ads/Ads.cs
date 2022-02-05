@@ -7,12 +7,14 @@ public class Ads : MonoBehaviour
     {
         [SerializeField] private bool _testMode = true;
         [SerializeField] private int _probablyShowAds = 30;
-        private String _gameID;
-        private String _video;
+        private static int _dieWithoutAds = 3;
+        private string _gameID;
+        private string _video;
 
         public static Ads instance;
 
-        #region Android 
+        #region Android
+        
         
         private readonly String _gameIDAndroid = "4516327";
         private static readonly String _videoAndroid = "Interstitial_Android";
@@ -29,12 +31,12 @@ public class Ads : MonoBehaviour
         private void Awake()
         {
             instance = this;
-            
+            CheckOS();
         }
 
         private void Start()
         {
-            CheckOS();
+            
             Advertisement.Initialize(_gameID, _testMode);
             
         }
@@ -43,6 +45,12 @@ public class Ads : MonoBehaviour
         {
             if (!Advertisement.isInitialized) return;
             
+            if (_dieWithoutAds > 0)
+            {
+                _dieWithoutAds--;
+                return;
+            }
+            
             if (Random.Range(0, 100) <= _probablyShowAds)
                 Advertisement.Show(_video, AdsHandler.instance );
 
@@ -50,23 +58,24 @@ public class Ads : MonoBehaviour
 
         private void CheckOS()
         {
-            if (SystemInfo.operatingSystem.Contains("Android"))
+            if (SystemInfo.operatingSystem.ToLower().Contains("android"))
             {
                 _video = _videoAndroid;
                 _gameID = _gameIDAndroid;
                 
             }
 
-            if (SystemInfo.operatingSystem.Contains("iOS"))
+            else if (SystemInfo.operatingSystem.ToLower().Contains("ios"))
             {
                 _video = _videoIOS;
                 _gameID = _gameIDiOS;
                 
             }
-            else
+            else 
             {
                 _gameID = _gameIDiOS;
                 _video = _videoIOS;
+                
             }
             
             
